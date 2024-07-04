@@ -1,0 +1,33 @@
+body img{
+    margin: auto;
+    padding: 100px;
+    width:;
+    border-radius: 500px;
+}
+
+.container{
+    display:flex;
+    justify-content: space-between;
+    padding:0%;
+    margin: 100px 5px;
+    background-color: grey;
+}
+
+.lost-pet{
+    width: 250px;
+    height: 150px;
+    background-color: #ccc;
+    border: 2px solid #999;
+    margin-top: 150px;
+    margin-right: 50px;
+    padding: 105px 85px;
+    border-radius: 10px;
+    text-align: center ;
+}
+
+.lost-pet img {
+    width:100px;
+    height:200px;
+}
+
+
