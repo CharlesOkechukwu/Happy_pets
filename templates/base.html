@@ -17,37 +17,66 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            
+            /* Adjust background properties as needed */
         }
         header {
-            background-color: brown;
+            background-color: #A52A2A;
             padding: 10px;
             color: #CCCCCC;
             text-align: center;
             width: 100%;
+            height: 8%;
             position: fixed;
             top: 0;
-            z-index: 1000; 
+            z-index: 1000;
+            justify-content: space-between; 
+        }
+        nav {
+            display: flex;
+            justify-content: right;
+            background-color: #A52A2A;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #CCCCCC;
+            text-decoration: none;
+            padding: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         footer {
-            background-color: black;
+            background-color: #272727;
             color: #CCCCCC;
             text-align: center;
             padding: 10px;
             position: fixed;
             bottom: 0;
             width: 100%;
-            height: 15%;
-            z-index: 1000; 
+            height: 20%;
+            z-index: 1000; /* Ensure footer stays on top */
         }
         main {
             z-index: 1; /* Ensure main content is behind header and footer */
+        }
+        .logo {
+            height: 50px;
+            margin-left: 30%;
+            
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Home Page</h1>
+        <img src="images/HappyPet2.png" alt="Logo" class="logo"> 
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">HealthTracking</a>
+            <a href="#">Appointments</a>
+            <a href="#">Tips</a>
+            <a href="#">Services</a>
+            <a href="#">Tips</a>
+        </nav>
     </header>
 
     <main>
