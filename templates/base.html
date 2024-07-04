@@ -19,7 +19,7 @@
             background-position: center;
             /* Adjust background properties as needed */
         }
-        header {
+        .container {
             background-color: #A52A2A;
             padding: 10px;
             color: #CCCCCC;
@@ -31,6 +31,12 @@
             z-index: 1000;
             justify-content: space-between; 
         }
+
+        .container img {
+            align-item: left;
+            color:yello;
+        }
+            
         nav {
             display: flex;
             justify-content: right;
@@ -67,7 +73,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header class ="container">
         <img src="images/HappyPet2.png" alt="Logo" class="logo"> 
         <nav>
             <a href="#">Home</a>
