@@ -19,6 +19,7 @@
 .container .header .profile-icon {
     height: 100%;
     width: 30%;
+    padding: 0 20px 0 10px;
 }
 .container .header .profile-icon img {
     max-width: 100%;
