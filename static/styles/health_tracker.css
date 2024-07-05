@@ -6,18 +6,17 @@
 .container {
     height: 100vh;
     width: 100vw;
-    position: relative;
+    background-color: #CCCCCC;
 }
 .container .header {
-    border: 2px solid black;
     display: flex;
     width: 99%;
     position: absolute;
     height: 30%;
-    padding: 0 0 0 0;
+    padding: 0 0 0 5px;
+    margin-top: 10px;
 }
 .container .header .profile-icon {
-    border: 2px solid red;
     height: 100%;
     width: 30%;
 }
@@ -27,4 +26,46 @@
     max-height: 70%;
     display: block;
     object-fit: cover;
+}
+.container .header .profile-icon h4 {
+    color: #272727;
+    padding: 5px;
+    text-align: center;
+}
+
+.container .header .profile-icon h4 span {
+    font-style: italic;
+}
+
+.container .nav-bar {
+    margin-left: 10px;
+    text-align: center;
+    width: 65%;
+    height: 40px;
+    display: flex;
+    background-color: #272727;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+.container .nav-bar a {
+    color: #CCCCCC;
+    text-decoration: none;
+}
+.container .nav-bar a:hover {
+    text-decoration: underline;
+    color: #EF7676;
+}
+/* style for destop view health tracker header */
+@media (min-width: 600px) {
+    .container .header .profile-icon h4 {
+        font-size: 30px;
+    }
+    .container .nav-bar {
+        margin-top: 10px;
+        margin-left: 20px;
+        padding: 0 25px;
+    }
 }
