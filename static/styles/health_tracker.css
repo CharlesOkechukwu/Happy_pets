@@ -24,9 +24,9 @@
 .container .header .profile-icon img {
     max-width: 100%;
     min-width: 100%;
-    max-height: 70%;
+    max-height: 60%;
     display: block;
-    object-fit: cover;
+    border-radius: 8px;
 }
 .container .header .profile-icon h4 {
     color: #272727;
@@ -67,6 +67,14 @@
     .container .nav-bar {
         margin-top: 10px;
         margin-left: 20px;
-        padding: 0 25px;
+        padding: 0 5px;       
+    }
+    .container .nav-bar a {
+        grid-row: 30%;
+        border: 2px solid white;
+    }
+    .container .header .profile-icon img {
+        min-width: 100%;
+        min-height: 60%;
     }
 }
