@@ -1,4 +1,44 @@
-body
-{
-    background-image: "background.jpg";
+/* boby styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+/* header styling */
+header {
+    background-color: brown;
+    padding: 10px;
+    color: #CCCCCC;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000; 
+}
+
+/* footer styling */
+footer {
+    background-color: black;
+    color: #CCCCCC;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    z-index: 1000; 
+}
+
+/* main styling */
+main {
+    z-index: 1; /* Ensure main content is behind header and footer */
 }
