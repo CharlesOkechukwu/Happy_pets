@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -17,31 +18,38 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
-            /* Adjust background properties as needed */
         }
         .container {
             background-color: #A52A2A;
             padding: 10px;
             color: #CCCCCC;
-            text-align: center;
             width: 100%;
-            height: 8%;
             position: fixed;
             top: 0;
             z-index: 1000;
-            justify-content: space-between; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .container img {
-            align-item: left;
-            color:yello;
+        .logo-nav-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
-            
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            height: 55px;
+            padding-left: 50px;
+        }
         nav {
             display: flex;
-            justify-content: right;
-            background-color: #A52A2A;
-            padding: 10px 0;
+            justify-content: center;
+            flex-grow: 1;
         }
         nav a {
             color: #CCCCCC;
@@ -51,38 +59,137 @@
         nav a:hover {
             text-decoration: underline;
         }
+        .search-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .search-input {
+            padding: 8px;
+            margin-right: 20px;
+            border: 1px solid #CCCCCC;
+            border-radius: 3px;
+            font-size: 10px;
+            width: 250px;
+        }
+        .search-button {
+            padding: 8px 16px;
+            margin-right: 198px;
+            background-color: #FFFFFF;
+            color: #272727;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 10px;
+        }
+        .account-options {
+            display: flex;
+            align-items: center;
+            color: #CCCCCC;
+            margin-left: 10px;
+        }
+        .account-options a {
+            color: #CCCCCC;
+            text-decoration: none;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        .account-options a:hover {
+            text-decoration: underline;
+        }
+        .account-options img {
+            height: 24px;
+            margin-right: 5px;
+        }
+        nav a i, .account-options a i {
+            margin-right: 5px;
+        }
+        
         footer {
             background-color: #272727;
             color: #CCCCCC;
             text-align: center;
-            padding: 10px;
+            padding: 5px;
             position: fixed;
             bottom: 0;
+            font-size: 10px;
             width: 100%;
             height: 20%;
-            z-index: 1000; /* Ensure footer stays on top */
+            z-index: 1000;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            flex: 1;
+            min-width: 100px;
+            margin: 3px;
+        }
+        .footer-column h4 {
+            margin-bottom: 3px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 3px;
+        }
+        .footer-column ul li a {
+            color: #CCCCCC;
+            text-decoration: none;
+        }
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .footer-social a {
+            margin: 0 15px;
+            color: #CCCCCC;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .footer-social img {
+            height: 90px;
         }
         main {
-            z-index: 1; /* Ensure main content is behind header and footer */
-        }
-        .logo {
-            height: 50px;
-            margin-left: 30%;
-            
+            margin-top: 160px; /* Adjust to ensure main content is below the header */
         }
     </style>
 </head>
 <body>
-    <header class ="container">
-        <img src="images/HappyPet2.png" alt="Logo" class="logo"> 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">HealthTracking</a>
-            <a href="#">Appointments</a>
-            <a href="#">Tips</a>
-            <a href="#">Services</a>
-            <a href="#">Tips</a>
-        </nav>
+    <header class="container">
+        <div class="logo-nav-container">
+            <div class="logo-container">
+                <img src="images/HappyPet2.png" alt="Logo" class="logo">
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Health Tracking</a>
+                <a href="#">Appointments</a>
+                <a href="#">Tips</a>
+                <a href="#">Services</a>
+                <a href="#">Lost Pet Alert</a>
+                <a href="#">Community</a>
+            </nav>
+            <div class="account-options">
+                <a href="#"><i class="fas fa-user"></i> Account</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Cart</a>
+            </div>
+        </div>
+        <form class="search-form">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </header>
 
     <main>
@@ -90,7 +197,49 @@
     </main>
 
     <footer>
-        Footer content here
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About HappyPet</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">HappyPet Express</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Official Stores</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Need Help?</h4>
+                <ul>
+                    <li><a href="#">Chat with us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Make money with HappyPet</h4>
+                <ul>
+                    <li><a href="#">Sell on HappyPet</a></li>
+                    <li><a href="#">Vendor Hub</a></li>
+                    <li><a href="#">Become a Sales Consultant</a></li>
+                    <li><a href="#">Become a Logistics Service Partner</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>HappyPet International</h4>
+                <ul>
+                    <li><a href="#">South Africa</a></li>
+                    <li><a href="#">Ghana</a></li>
+                    <li><a href="#">Nigeria</a></li>
+                    <li><a href="#">Kenya</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 </body>
 </html>
