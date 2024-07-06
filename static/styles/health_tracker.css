@@ -1,8 +1,9 @@
+/* remove default styles */
 *{
     padding: 0;
     margin: 0;
 }
-/* style container for health tracker page profile header */
+/* style container for health tracker page profile header both desktop and mobile */
 .container {
     height: 100vh;
     width: 100vw;
@@ -10,73 +11,61 @@
     margin-top: 100px;
 }
 
-.container .header {
-    display: flex;
-    width: 99%;
-    position: absolute;
-    height: 30%;
-    padding: 0 0 0 5px;
-    margin-top: 20px;
-}
-
-.container .header .profile-icon {
-    height: 100%;
-    width: 30%;
-    padding: 0 20px 0 10px;
-}
-
-.container .header .profile-icon img {
-    height: 70%;
-    width: 70%;
-    margin-right: 15%;
-    margin-left: 15%;
-    border-radius: 8%;
-}
-.container .header .profile-icon h4 {
-    color: #272727;
-    padding: 5px;
-    text-align: center;
-}
-
-.container .header .profile-icon h4 span {
-    font-style: italic;
-}
-
-.container .nav-bar {
-    margin-left: 10px;
-    text-align: center;
-    width: 65%;
-    height: 40px;
-    display: flex;
-    background-color: #272727;
-    margin-top: 5px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: 5px;
-}
-
-.container .nav-bar a {
-    color: #CCCCCC;
-    text-decoration: none;
-}
-
-.container .nav-bar a:hover {
-    text-decoration: underline;
-    color: #EF7676;
-}
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
-    .container .header .profile-icon h4 {
-        font-size: 20px;
+    .container .profile-icon {
+        height: 100%;
+        width: 25%;
+        position: fixed;
+        padding: 20px 0 0 0;
+        text-align: center;
+        font-size: 18px;
+        color: #272727;
     }
-    .container .nav-bar {
-        margin-top: 10px;
-        margin-left: 0;
-        padding: 0 30px;
-        width: 50%       
+
+    /*style image */
+    .container .profile-icon img {
+        width: 70%;
+        height: auto;
+        max-height: 30%;
+        border-radius: 8%;
+        margin: 0 15% 0 15%;
     }
-    .container .nav-bar a {
-        grid-row: 30%;
+
+    /* style bracket text */
+    .container .profile-icon h4 span {
+        font-style: italic;
+        padding: 5px 0;
+    }
+
+    /* style main page content */
+    .container .content {
+        width: 74%;
+        height: 100%;
+        margin-left: 25%;
+        padding: 25px 0 0 0;
+    }
+    
+    /* style profile nav bar */
+    .container .content .nav-bar {
+        margin-left: 10px;
+        text-align: center;
+        width: 65%;
+        height: 40px;
+        display: flex;
+        background-color: #272727;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        border-radius: 5px;
+    }
+
+    .container .content .nav-bar a {
+        color: #CCCCCC;
+        text-decoration: none;
+    }
+
+    .container .content .nav-bar a:hover {
+        color: #EF7676;
     }
 }
