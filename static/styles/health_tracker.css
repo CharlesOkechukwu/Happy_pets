@@ -11,6 +11,57 @@
     margin-top: 100px;
 }
 
+/* mobile version styles */
+.container .profile-icon {
+    height: 30%;
+    width: 100%;
+    padding: 15px 0 0 0;
+    color: #272727;
+    text-align: center;
+}
+
+/* style image mobile view */
+.container .profile-icon img {
+    height: 85%;
+    width: auto;
+    border-radius: 8%;
+}
+
+/* style bracket text */
+.container .profile-icon h4 span {
+    font-style: italic;
+}
+
+/* style main content */
+.container .content {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* style nav-bar  mobile view */
+.container .content .nav-bar {
+    background-color: #272727;
+    width: 80%;
+    height: 30px;
+    margin: 0 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.container .content .nav-bar a {
+    color: #CCCCCC;
+    text-decoration: none;
+}
+
+.container .content .nav-bar a:hover {
+    color: #EF7676;
+}
+
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
     .container .profile-icon {
