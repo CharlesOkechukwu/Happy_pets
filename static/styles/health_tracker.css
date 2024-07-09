@@ -2,11 +2,17 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 /* style container for health tracker page profile header both desktop and mobile */
 .container {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100%;
+    max-width: 100%;
     background-color: #CCCCCC;
     margin-top: 100px;
     font-style: bold;
@@ -95,6 +101,46 @@
 /* style table title both views */
 .container .content .health-records .table-title {
     margin-top: 30px;
+}
+
+/* style growth-tracking section */
+.container .content .growth-tracking {
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: #272727; 
+}
+
+.container .content .growth-tracking .growth-data {
+    width: 100%;
+    height: auto;
+}
+
+/* style chart image */
+.container .content .growth-tracking .growth-data img {
+    width: 100%;
+    height: auto;
+    border-radius: 8%;
+}
+
+/* style chart titles */
+.container .content .growth-tracking .size-data {
+    margin-top: 10px;
+    padding: 10px;
+    color: #272727;
+
+}
+.container .content .growth-tracking .size-data h5 {
+    font-size: 18px;
+}
+
+.container .content .growth-tracking .size-data p {
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+
+.container .content .growth-tracking .size-data p span {
+    font-style: bold;
+    font-weight: 500;
 }
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
