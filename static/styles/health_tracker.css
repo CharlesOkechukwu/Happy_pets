@@ -167,6 +167,44 @@ html {
     border-radius: 10px;
 
 }
+
+/* style symptom checker */
+.container .content .symptom-checker {
+    margin-top: 10px;
+    padding: 10px 15px;
+    color: #272727;
+    width: 100%;
+}
+
+/* style symptom checker form, inputs and text-area mobile view*/
+.container .content .symptom-checker form {
+    width: 100%;
+    height: auto;
+}
+
+.container .content .symptom-checker form h3 {
+    margin-bottom: 10px;
+}
+
+.container .content .symptom-checker form input, textarea {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #888888;
+}
+
+.container .content .symptom-checker form button {
+    width: 50%;
+    height: 30px;
+    margin: 5px 25%;
+    background-color: #272727;
+    color: #CCCCCC;
+    border-radius: 5px;
+    border: none;
+}
+
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
     .container .profile-icon {
@@ -264,5 +302,37 @@ html {
     
     .container .content .growth-tracking h3 {
         margin-top: 30px;
+    }
+
+    .container .content .symptom-checker form label {
+        width: 100%;
+    }
+    /* style symptom checker form input, textarea and button desktop version */
+    .container .content .symptom-checker form input {
+        width: 50%;
+        height: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #888888;
+    }
+
+    .container .content .symptom-checker form textarea {
+        width: 50%;
+        height: 100px;
+        margin: 0;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #888888;
+    }
+
+    .container .content .symptom-checker form button {
+        width: 50%;
+        height: 30px;
+        margin: 10px 0;
+        background-color: #272727;
+        color: #CCCCCC;
+        border-radius: 5px;
+        border: none;
     }
 }
