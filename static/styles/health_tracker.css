@@ -1,16 +1,5 @@
-/* remove default styles */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-    width: 100%;
-}
 /* style container for health tracker page profile header both desktop and mobile */
-.container {
+main {
     min-height: 100%;
     max-width: 100%;
     background-color: #CCCCCC;
@@ -20,7 +9,7 @@ html {
 }
 
 /* mobile version styles */
-.container .profile-icon {
+main .profile-icon {
     height: 30%;
     width: 100%;
     padding: 15px 0 0 0;
@@ -29,26 +18,26 @@ html {
 }
 
 /* style image mobile view */
-.container .profile-icon img {
+main .profile-icon img {
     height: 85%;
     width: auto;
     border-radius: 8%;
 }
 
 /* style bracket text */
-.container .profile-icon h4 span {
+main .profile-icon h4 span {
     font-style: italic;
 }
 
 /* style main content */
-.container .content {
+main .content {
     width: 100%;
     height: auto;
     margin-top: 20px;
 }
 
 /* style nav-bar  mobile view */
-.container .content .nav-bar {
+main .content .nav-bar {
     background-color: #272727;
     width: 90%;
     height: 30px;
@@ -61,34 +50,34 @@ html {
     font-size: 15px;
 }
 
-.container .content .nav-bar a {
+main .content .nav-bar a {
     color: #CCCCCC;
     text-decoration: none;
 }
 
-.container .content .nav-bar a:hover {
+main .content .nav-bar a:hover {
     color: #EF7676;
 }
 
-.container .content .health-records {
+main .content .health-records {
     margin-top: 10px;
     padding: 10px 15px;
     color: #272727;
 }
 
 /* style vaccination history table mobile view */
-.container .content .health-records h3 {
+main .content .health-records h3 {
     margin-bottom: 0px;
 }
 
-.container .content .health-records table {
+main .content .health-records table {
     text-align: center;
 }
-.container .content .health-records table tr td {
+main .content .health-records table tr td {
     padding: 5px 10px 5px 0;
 }
 
-.container .content .health-records p {
+main .content .health-records p {
     padding: 5px;
     background-color: brown;
     width: 200px;
@@ -99,66 +88,66 @@ html {
 }
 
 /* style table title both views */
-.container .content .health-records .table-title {
+main .content .health-records .table-title {
     margin-top: 30px;
 }
 
 /* style growth-tracking section */
-.container .content .growth-tracking {
+main .content .growth-tracking {
     margin-top: 10px;
     padding: 10px 15px;
     color: #272727; 
 }
 
-.container .content .growth-tracking .growth-data {
+main .content .growth-tracking .growth-data {
     width: 100%;
     height: auto;
 }
 
 /* style chart image */
-.container .content .growth-tracking .growth-data img {
+main .content .growth-tracking .growth-data img {
     width: 100%;
     height: auto;
     border-radius: 8%;
 }
 
 /* style chart titles */
-.container .content .growth-tracking .size-data {
+main .content .growth-tracking .size-data {
     margin-top: 10px;
     padding: 10px;
     color: #272727;
 
 }
-.container .content .growth-tracking .size-data h5 {
+main .content .growth-tracking .size-data h5 {
     font-size: 18px;
 }
 
-.container .content .growth-tracking .size-data p {
+main .content .growth-tracking .size-data p {
     font-size: 15px;
     padding-bottom: 15px;
 }
 
-.container .content .growth-tracking .size-data p span {
+main .content .growth-tracking .size-data p span {
     font-style: bold;
     font-weight: 500;
 }
 
 /* style growth tracker table */
-.container .content .growth-tracking table {
+main .content .growth-tracking table {
     margin-top: 10px;
     text-align: center;
 }
 
-.container .content .growth-tracking h3 {
+main .content .growth-tracking h3 {
     margin-top: 10px;
 }
 
 /* style growth tracking table columns */
-.container .content .growth-tracking table tr td {
+main .content .growth-tracking table tr td {
     padding: 5px 10px 5px 0;
 }
 
-.container .content .growth-tracking .info {
+main .content .growth-tracking .info {
     padding: 5px;
     background-color: brown;
     width: 200px;
@@ -169,7 +158,7 @@ html {
 }
 
 /* style symptom checker */
-.container .content .symptom-checker {
+main .content .symptom-checker {
     margin-top: 10px;
     padding: 10px 15px;
     color: #272727;
@@ -177,16 +166,16 @@ html {
 }
 
 /* style symptom checker form, inputs and text-area mobile view*/
-.container .content .symptom-checker form {
+main .content .symptom-checker form {
     width: 100%;
     height: auto;
 }
 
-.container .content .symptom-checker form h3 {
+main .content .symptom-checker form h3 {
     margin-bottom: 10px;
 }
 
-.container .content .symptom-checker form input, textarea {
+main .content .symptom-checker form input, textarea {
     width: 100%;
     height: 30px;
     margin-bottom: 10px;
@@ -195,7 +184,7 @@ html {
     border: 1px solid #888888;
 }
 
-.container .content .symptom-checker form button {
+main .content .symptom-checker form button {
     width: 50%;
     height: 30px;
     margin: 5px 25%;
@@ -207,7 +196,7 @@ html {
 
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
-    .container .profile-icon {
+    main .profile-icon {
         height: 100%;
         width: 25%;
         position: fixed;
@@ -218,7 +207,7 @@ html {
     }
 
     /*style image */
-    .container .profile-icon img {
+    main .profile-icon img {
         width: 70%;
         height: auto;
         max-height: 30%;
@@ -227,13 +216,13 @@ html {
     }
 
     /* style bracket text */
-    .container .profile-icon h4 span {
+    main .profile-icon h4 span {
         font-style: italic;
         padding: 5px 0;
     }
 
     /* style main page content */
-    .container .content {
+    main .content {
         width: 74%;
         height: 100%;
         margin-left: 25%;
@@ -241,7 +230,7 @@ html {
     }
     
     /* style profile nav bar */
-    .container .content .nav-bar {
+    main .content .nav-bar {
         margin-left: 10px;
         text-align: center;
         width: 65%;
@@ -254,61 +243,61 @@ html {
         border-radius: 5px;
     }
 
-    .container .content .nav-bar a {
+    main .content .nav-bar a {
         color: #CCCCCC;
         text-decoration: none;
     }
 
-    .container .content .nav-bar a:hover {
+    main .content .nav-bar a:hover {
         color: #EF7676;
     }
 
     /* style transaction history */
-    .container .content .health-records {
+    main .content .health-records {
         margin-top: 30px;
         margin-left: 0px;
         color: #272727;
     }
 
-    .container .content .health-records h3 {
+    main .content .health-records h3 {
         margin-bottom: 5px;
     }
 
-    .container .content .health-records table tr td {
+    main .content .health-records table tr td {
         padding: 5px 10px 5px 0;
     }
 
     /* style gwoth tracking desktop version */
-    .container .content .growth-data {
+    main .content .growth-data {
         width: 100%;
         height: auto;
         display: flex;
     }
     
     /* style chart image  desktop version */
-    .container .content .growth-tracking .growth-data img {
+    main .content .growth-tracking .growth-data img {
         width: 50%;
         height: auto;
         border-radius: 8%;
     }
 
     /* style chart titles desktop version */
-    .container .content .growth-tracking .size-data {
+    main .content .growth-tracking .size-data {
         margin-left: 30px;
         padding: 10px;
         color: #272727;
         width: 40%;
     }
     
-    .container .content .growth-tracking h3 {
+    main .content .growth-tracking h3 {
         margin-top: 30px;
     }
 
-    .container .content .symptom-checker form label {
+    main .content .symptom-checker form label {
         width: 100%;
     }
     /* style symptom checker form input, textarea and button desktop version */
-    .container .content .symptom-checker form input {
+    main .content .symptom-checker form input {
         width: 50%;
         height: 30px;
         margin-bottom: 10px;
@@ -317,7 +306,7 @@ html {
         border: 1px solid #888888;
     }
 
-    .container .content .symptom-checker form textarea {
+    main .content .symptom-checker form textarea {
         width: 50%;
         height: 100px;
         margin: 0;
@@ -326,7 +315,7 @@ html {
         border: 1px solid #888888;
     }
 
-    .container .content .symptom-checker form button {
+    main .content .symptom-checker form button {
         width: 50%;
         height: 30px;
         margin: 10px 0;
