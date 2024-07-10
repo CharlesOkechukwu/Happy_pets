@@ -142,6 +142,31 @@ html {
     font-style: bold;
     font-weight: 500;
 }
+
+/* style growth tracker table */
+.container .content .growth-tracking table {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.container .content .growth-tracking h3 {
+    margin-top: 10px;
+}
+
+/* style growth tracking table columns */
+.container .content .growth-tracking table tr td {
+    padding: 5px 10px 5px 0;
+}
+
+.container .content .growth-tracking .info {
+    padding: 5px;
+    background-color: brown;
+    width: 200px;
+    text-align: center;
+    color: #CCCCCC;
+    border-radius: 10px;
+
+}
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
     .container .profile-icon {
@@ -213,5 +238,31 @@ html {
 
     .container .content .health-records table tr td {
         padding: 5px 10px 5px 0;
+    }
+
+    /* style gwoth tracking desktop version */
+    .container .content .growth-data {
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+    
+    /* style chart image  desktop version */
+    .container .content .growth-tracking .growth-data img {
+        width: 50%;
+        height: auto;
+        border-radius: 8%;
+    }
+
+    /* style chart titles desktop version */
+    .container .content .growth-tracking .size-data {
+        margin-left: 30px;
+        padding: 10px;
+        color: #272727;
+        width: 40%;
+    }
+    
+    .container .content .growth-tracking h3 {
+        margin-top: 30px;
     }
 }

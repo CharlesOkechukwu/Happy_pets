@@ -1,0 +1,6 @@
+flask
+flask-cors
+pycodestyle
+SQLAlchemy
+mysqlclient
+bcrypt
