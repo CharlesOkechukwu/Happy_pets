@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
+{% block title %}Registration page{% endblock %}
+{% endblock %}
+
+{% block body %}
+{{ super() }}
+
+<div class="register-container">
+    <h4 style="text-align: center;">Create Account</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="field">
+            {{ form.firstname.label }}<br>
+            {{ form.firstname() }}
+        </div>
+        <div class="field">
+            {{ form.lastname.label }}<br>
+            {{ form.lastname() }}
+        </div>
+        <div class="field">
+            {{ form.email.label }}<br>
+            {{ form.email() }}
+        </div>
+        <div class="field">
+            {{ form.phonenumber.label }}<br>
+            {{ form.phonenumber() }}
+        </div>
+        <div class="field">
+            {{ form.password.label }}<br>
+            {{ form.password() }}
+        </div>
+        <div class="field">
+            {{ form.confirm_password.label }}<br>
+            {{ form.confirm_password() }}
+        </div>
+        <div class="submit">
+            {{ form.submit() }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}
