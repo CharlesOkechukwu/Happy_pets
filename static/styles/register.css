@@ -1,0 +1,39 @@
+.register-container {
+    background-color: #CCCCCC;
+    opacity: 0.75;
+    width: fit-content;
+    height: fit-content;
+    max-width: 700vw;
+    margin: 120px auto;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.field {
+    width: fit-content;
+    color: #A52A2A;
+}
+
+.submit button {
+    float: right;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 4px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #A52A2A;
+    opacity: 1;
+    animation: fadeOut 15s forwards;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
