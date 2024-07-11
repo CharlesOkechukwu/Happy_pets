@@ -1,0 +1,21 @@
+HappyPets/
+├── api/
+│   ├── __init__.py
+│   ├── config.py           # Configuration settings for the Flask app
+│   ├── auth/
+│   │   ├── __init__.py     # Imports here are available to the Auth package
+│   │   ├── forms.py        # Forms for authentication (e.g., login, registration)
+│   │   ├── routes.py        # Auth-related views (e.g., login, register, logout)
+|   |   ├── utils.py        # Extra functions or variable I need in the Auth package
+│   ├── views/
+│   │   ├── __init__.py     # Imports here are available to the views package
+│   │   ├── routes.py       # Other views (e.g., homepage, about page)
+|   |   ├── utils.py        # Extra functions or variable I need in the views package
+├── models/
+│   ├── __init__.py         # Imports here are available to the model package
+│   ├── user.py             # User model
+├── static/                 # Static files (e.g., CSS, JavaScript)
+├── templates/              # Jinja templates (HTML files)
+├── config.py               # App configuration
+├── app.py                  # Flask app runner
+└── requirements.txt        # Python dependencies

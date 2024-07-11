@@ -1,16 +1,10 @@
-/* Set the height of the html, body */
-html, body {
-    height: 100%;
-    width: 100%;
-}
-
 /* Style the Outside container */
 .container {
-    background-color: aquamarine;
     height: 50%;
     display: flex;
     justify-content: center;
     justify-items: center;
+    margin-top: 200px;
 }
 
 /* Style div_01 in container */
@@ -23,6 +17,14 @@ html, body {
     padding: 0.2% 0.2% 0% 0.2%;
 }
 
+/* Styling card-img */
+.card-img {
+    width: 100%;
+    height: 60%;
+    border-radius: 8%;
+}
+
+/* Styling h4 font */
 h4 {
     text-align: center;
 }
