@@ -5,11 +5,11 @@
 </div>
 <div class="content">
     <div class="nav-bar">
-        <a href="#" class="mini-nav">Health Records</a>
-        <a href="#" class="mini-nav">Growth Tracking</a>
-        <a href="#" class="mini-nav">Symptom Checker</a>
+        <a href="#" class="mini-nav active" id="records">Health Records</a>
+        <a href="#" class="mini-nav" id="growth">Growth Tracking</a>
+        <a href="#" class="mini-nav" id="symptoms">Symptom Checker</a>
     </div>
-    <div class="health-records">
+    <div class="health-records" id="health-record">
         <h3>Vaccination History</h3>
         <table class="vaccination">
             <tr>
@@ -46,7 +46,7 @@
         </table>
         <p>No records yet!</p>
     </div>
-    <div class="growth-tracking">
+    <div class="growth-tracking hide" id="track-growth">
         <div class="growth-data">
             <img src="/static/images/puppy-growth-chart.png" alt="growth chart">
             <div class="size-data">
@@ -89,7 +89,7 @@
         </table>
         <p class="info">Records Not Sufficient!</p>
     </div>
-    <div class="symptom-checker">
+    <div class="symptom-checker hide" id="check-symptom">
         <form>
             <h3> Check Pet Symptoms</h3>
             <label for="breed">Breed:</label><br>
@@ -100,4 +100,5 @@
         </form>
     </div>
 </div>
+<script src="/static/scripts/health_tracker.js"></script>
 {% include 'footer.html' %}

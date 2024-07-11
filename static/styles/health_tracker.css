@@ -194,6 +194,14 @@ main .content .symptom-checker form button {
     border: none;
 }
 
+.hide {
+    display: none;
+}
+
+main .content .nav-bar .active {
+    color: #EF7676;
+}
+
 /* style for destop view health tracker header */
 @media (min-width: 600px) {
     main .profile-icon {
