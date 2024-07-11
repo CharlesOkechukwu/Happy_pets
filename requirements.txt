@@ -4,3 +4,4 @@ pycodestyle
 SQLAlchemy
 mysqlclient
 bcrypt
+Flask-SQLAlchemy
