@@ -1,12 +1,8 @@
-from flask import Flask, render_template
+#!/usr/bin/python3
+"""Run the flask app"""
+from api import create_app
 
-app = Flask(__name__)
-
-@app.route('/', strict_slashes=False)
-def home():
-    """render home page"""
-    return render_template('health_tracker.html')
-
+app = create_app('config.DevelopmentConfig')
 
 if __name__ == '__main__':
     app.run(debug=True)
