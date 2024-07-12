@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+<form class="add-pet">
+    <h3>Add a Pet</h3>
+    <input type="text" id="pet-name" name="name" placeholder="Enter pet name">
+    <input type="text" id="pet-specie" name="specie" placeholder="Enter pet specie">
+    <input type="text" id="pet-breed" name="breed" placeholder="Enter pet breed">
+    <input type="text" id="pet-age" name="age" placeholder="Enter pet age">
+    <input type="text" id="pet-color" name="color" placeholder="Enter pet color">
+    <label for="pet-photo">Upload pet photo:</label>
+    <input type="file" id="pet-photo" name="photo">
+    <button type="submit">Add Pet</button>
+</form>
+{% include 'footer.html' %}
