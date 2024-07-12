@@ -3,4 +3,4 @@ from api.views import views
 
 @views.route('/')
 def home():
-    return render_template("service_dir.html")
+    return render_template("base.html")

@@ -27,3 +27,8 @@ def register():
         flash('Your account has been created! You can now log in.', 'success')
         return "successful"
     return render_template('register.html', form=form)
+
+
+@auth.route('/login')
+def login():
+    return render_template('login.html')

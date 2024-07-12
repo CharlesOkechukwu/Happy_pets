@@ -10,7 +10,6 @@
     {% endblock %}
 </head>
 <body>
-    {% block body %}
     <header>
         <div class="logo-nav-container">
             <div class="logo-container">
@@ -44,6 +43,8 @@
                 <a href="#"><img src="{{ url_for('static', filename='images/Help_icon.png') }}" alt=""> Help <i class="fa fa-caret-down"></i></a>
                 <div class="dropdown-content">
                     <a href="{{ url_for('auth.register') }}">Chat with us</a>
+                    <a href="{{ url_for('auth.register') }}">Help center</a>
+                    <a href="{{ url_for('auth.register') }}">Contact us</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -56,6 +57,7 @@
             </div>
         </form>
     </header>
+    {% block content %}{% endblock %}
     <footer>
         <div class="footer-content">
             <div class="footer-column">
@@ -101,6 +103,5 @@
             <a href="#"><img src="{{ url_for('static', filename='images/instagramlogo.png') }}" alt=""></a>
         </div>
     </footer>
-    {% endblock %}
 </body>
 </html>
