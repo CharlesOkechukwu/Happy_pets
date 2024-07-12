@@ -8,3 +8,7 @@ def home():
 @views.route('/pet', methods=['GET'], strict_slashes=False)
 def get_pet():
     return render_template("add_pet.html")
+
+@views.route('/health', methods=['GET'], strict_slashes=False)
+def health():
+    return render_template("health_tracker.html")
