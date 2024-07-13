@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css " href="../static/styles/base.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
     <header>
@@ -56,6 +60,31 @@
                 </div>
             </div>
         </form>
+<body style="background-image: url('images/background.jpg')">
+    <header class="container">
+        <div class="logo-nav-container">
+            <div class="logo-container">
+                <img src="/static/images/HappyPet2.png" alt="Logo" class="logo">
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Health Tracking</a>
+                <a href="#">Appointments</a>
+                <a href="#">Tips</a>
+                <a href="#">Services</a>
+                <a href="#">Lost Pet Alert</a>
+                <a href="#">Community</a>
+            </nav>
+            <div class="account-options">
+                <a href="#"><i class="fas fa-user"></i> Account <i class="fa fa-caret-down"></i></a>
+                <a href="#"><i class="fas fa-question-circle"></i> Help <i class="fa fa-caret-down"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Cart <i class="fa fa-caret-down"></i></a>
+            </div>
+        </div>
+        <form class="search-form">
+            <input type="text" placeholder="Search..." class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </header>
     {% block content %}{% endblock %}
     <footer>
@@ -101,6 +130,49 @@
             <a href="#"><img src="{{ url_for('static', filename='images/Twitterlogo.png') }}" alt=""></a>
             <a href="#"><img src="{{ url_for('static', filename='images/youtubelogo.png') }}" alt=""></a>
             <a href="#"><img src="{{ url_for('static', filename='images/instagramlogo.png') }}" alt=""></a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>About HappyPet</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">HappyPet Express</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Official Stores</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Need Help?</h4>
+                <ul>
+                    <li><a href="#">Chat with us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Make money with HappyPet</h4>
+                <ul>
+                    <li><a href="#">Sell on HappyPet</a></li>
+                    <li><a href="#">Vendor Hub</a></li>
+                    <li><a href="#">Become a Sales Consultant</a></li>
+                    <li><a href="#">Become a Logistics Service Partner</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>HappyPet International</h4>
+                <ul>
+                    <li><a href="#">South Africa</a></li>
+                    <li><a href="#">Ghana</a></li>
+                    <li><a href="#">Nigeria</a></li>
+                    <li><a href="#">Kenya</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
 </body>

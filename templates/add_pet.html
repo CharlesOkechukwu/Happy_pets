@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+<main class="form-container">
+    <form class="add-pet" enctype="multipart/form-data" action="{{ url_for('views.add_pet') }}" method="post">
+        <h3>Add a Pet</h3>
+        {% with alert = get_flashed_messages(with_categories=true) %}
+        {% if alert %}
+        {% for category, message in alert %}
+        <div class="{{ category }}">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <input type="text" id="pet-name" name="name" placeholder="Enter pet name" required><br>
+        <input type="text" id="pet-specie" name="specie" placeholder="Enter pet specie" required><br>
+        <input type="text" id="pet-breed" name="breed" placeholder="Enter pet breed" required><br>
+        <label for="birthdate">Pet Date of Birth:</label><br>
+        <input type="date" id="birthdate" name="birth_date" placeholder="Pet Date of Birth" required><br>
+        <input type="text" id="pet-color" name="color" placeholder="Enter pet color" required><br>
+        <label for="pet-photo">Upload pet photo:</label><br>
+        <input type="file" id="pet-photo" name="photo" required><br>
+        <button type="submit">Add Pet</button>
+    </form>
+</main>
+{% include 'footer.html' %}
