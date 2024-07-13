@@ -3,7 +3,6 @@
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
-<script type="module" src="{{ url_for('static', filename='js/alert_btn.js') }}"></script>
 {% block title %}{% endblock %}
 {% endblock %}
 
@@ -19,32 +18,16 @@
             {% endfor %}
         {% endif %}
     {% endwith %}<br>
-    <h4 style="text-align: center;">Create Account</h2>
-    <form method="POST" action="{{ url_for('auth.register')}}">
+    <h4 style="text-align: center;">Sign in</h2>
+    <form method="POST" action="{{ url_for('auth.login')}}">
         {{ form.hidden_tag() }}
-        <div class="field">
-            {{ form.firstname.label }}<br>
-            {{ form.firstname(class="form-ctr") }}
-        </div>
-        <div class="field">
-            {{ form.lastname.label }}<br>
-            {{ form.lastname(class="form-ctr") }}
-        </div>
         <div class="field">
             {{ form.email.label }}<br>
             {{ form.email(class="form-ctr") }}
         </div>
         <div class="field">
-            {{ form.phonenumber.label }}<br>
-            {{ form.phonenumber(class="form-ctr") }}
-        </div>
-        <div class="field">
             {{ form.password.label }}<br>
             {{ form.password(class="form-ctr") }}
-        </div>
-        <div class="field">
-            {{ form.confirm_password.label }}<br>
-            {{ form.confirm_password(class="form-ctr") }}
         </div>
         <div class="submit-field">
             {{ form.submit(class="submit-btn") }}
