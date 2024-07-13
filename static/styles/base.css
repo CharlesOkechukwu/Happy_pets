@@ -39,6 +39,7 @@ footer {
     width: 100%;
     height: auto;
     z-index: 1000; 
+    margin-top: auto;
 }
 
 /* Styling the logo navigation container */
@@ -175,7 +176,7 @@ text-decoration: none;
 }
 
 .hero-content .btn-primary {
-    background-color: #ff7f50;
+    background-color: #a52a2a;
     color: #CCCCCC;
     padding: 15px 30px;
     text-decoration: none;
@@ -184,12 +185,12 @@ text-decoration: none;
 }
 
 .hero-content .btn-primary:hover {
-    background-color: #ff6347;
+    background-color: #272727;
 }
 
 /* Services Section */
 .services {
-    padding: 50px 20px;
+    padding: 20px 20px;
     text-align: center;
 }
 
@@ -220,40 +221,6 @@ text-decoration: none;
 
 .service-card h3 {
     margin-bottom: 10px;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 50px 20px;
-    text-align: center;
-    color: #CCCCCC;
-}
-
-.testimonials h2 {
-    margin-bottom: 40px;
-}
-
-.testimonial-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.testimonial-card {
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 250px;
-}
-
-.testimonial-card p {
-    font-style: italic;
-}
-
-.testimonial-card h4 {
-    margin-top: 20px;
-    font-weight: bold;
 }
 
 /* Footer */
