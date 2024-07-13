@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 def home():
     return render_template("service_dir.html")
 
-@views.route('/pet', methods=['GET', 'POST'], strict_slashes=False)
+@views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
 def add_pet():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -42,21 +42,12 @@ def add_pet():
             flash("Enter pet's color", 'error')
         else:
             pet.color = color
-        upload_folder = os.path.join('static', 'uploads')
-        current_app.config['UPLOAD'] = upload_folder
-        filename = secure_filename(photo.filename)
-        if filename == '':
-            flash("Upload pet's photo", 'error')
-        else:
-            if photo and allowed_file(filename):
-                photo.save(os.path.join(current_app.config['UPLOAD'], filename))
-                photo_path = os.path.join(current_app.config['UPLOAD'], filename)
-                pet.photo = photo_path
-                db.session.add(pet)
-                db.session.commit()
-                flash("Pet added successfully", 'success')
-            else:
-                flash("File not allowed", 'error')
+        photo_path = upload_photo(photo)
+        if photo_path is not None:
+            pet.photo = photo_path
+            db.session.add(pet)
+            db.session.commit()
+            flash("Pet added successfully", 'success')
         return redirect(url_for('views.add_pet'))
     return render_template("add_pet.html")
 
@@ -64,6 +55,23 @@ def allowed_file(filename):
     """check if file is allowed"""
     allowed = ['png', 'jpg', 'jpeg']
     return '.' in filename and filename.split('.')[-1] in allowed
+
+def upload_photo(file):
+    """ulpload photo function"""
+    upload_folder = os.path.join('static', 'uploads')
+    current_app.config['UPLOAD'] = upload_folder
+    filename = secure_filename(file.filename)
+    if filename == '':
+        flash("Upload pet's photo", 'error')
+        return None
+    else:
+        if file and allowed_file(filename):
+            file.save(os.path.join(current_app.config['UPLOAD'], filename))
+            photo_path = os.path.join(current_app.config['UPLOAD'], filename)
+        else:
+            flash("File not allowed", 'error')
+            return None
+    return photo_path
 
 
 @views.route('/health', methods=['GET'], strict_slashes=False)

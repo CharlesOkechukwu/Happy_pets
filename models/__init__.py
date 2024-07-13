@@ -2,3 +2,4 @@
 
 from models.user import User
 from models.pet import Pet
+from models.vaccination import Vaccination
