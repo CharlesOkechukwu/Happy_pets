@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
 <body>
-    {% block body %}
     <header>
         <div class="logo-nav-container">
             <div class="logo-container">
@@ -31,12 +31,33 @@
                 <button type="submit" class="search-button">Search</button>
             </div>
             <div class="account-options">
-                <a href=""><img src="{{ url_for('static', filename='images/humanPhoto.png') }}" alt=""> Account</a>
-                <a href="#"><img src="{{ url_for('static', filename='images/Help_icon.png') }}" alt=""> Help</a>
-                <a href="#"><img src="{{ url_for('static', filename='images/happyPetCart.png') }}" alt=""> Cart</a>
+                <div class="dropdown">
+                    <a href="#"><img src="{{ url_for('static', filename='images/humanPhoto.png') }}" alt=""> Account <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('auth.register') }}">Register</a>
+                    <a href="{{ url_for('auth.login') }}">Login</a>
+                    <a href="{{ url_for('auth.register') }}">Add a Pet</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><img src="{{ url_for('static', filename='images/Help_icon.png') }}" alt=""> Help <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('auth.register') }}">Chat with us</a>
+                    <a href="{{ url_for('auth.register') }}">Help center</a>
+                    <a href="{{ url_for('auth.register') }}">Contact us</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#"><img src="{{ url_for('static', filename='images/happyPetCart.png') }}" alt=""> Cart <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('auth.register') }}">Buy</a>
+                    <a href="{{ url_for('auth.register') }}">Sell</a>
+                    </div>
+                </div>
             </div>
         </form>
     </header>
+    {% block content %}{% endblock %}
     <footer>
         <div class="footer-content">
             <div class="footer-column">
@@ -77,11 +98,10 @@
         </div>
         <div class="footer-social">
             <a href="#"><img src="{{ url_for('static', filename='images/facebooklogo.png') }}" alt=""></a>
-            <a href="#"><img src="{{ url_for('static', filename='images/Twitterlogo.png') }}" alt=""></i></a>
+            <a href="#"><img src="{{ url_for('static', filename='images/Twitterlogo.png') }}" alt=""></a>
             <a href="#"><img src="{{ url_for('static', filename='images/youtubelogo.png') }}" alt=""></a>
             <a href="#"><img src="{{ url_for('static', filename='images/instagramlogo.png') }}" alt=""></a>
         </div>
     </footer>
-    {% endblock %}
 </body>
 </html>
