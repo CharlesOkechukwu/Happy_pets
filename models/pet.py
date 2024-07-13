@@ -10,7 +10,7 @@ class Pet(db.Model):
     name = db.Column(db.String(200), nullable=False)
     specie = db.Column(db.String(200), nullable=False)
     breed = db.Column(db.String(200), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
+    birth_date = db.Column(db.Date, nullable=False)
     color = db.Column(db.String(200), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     photo = db.Column(db.String(200), nullable=False)

@@ -27,6 +27,7 @@
     border-radius: 5px;
     box-shadow: 1px 1px 3px #272727;
     border: 1px solid #a09b9b;
+    background-color: white;
 }
 
 .form-container form button{
@@ -39,13 +40,19 @@
     color: #CCCCCC;
 }
 
-.form-container form .alert {
+.form-container form .error {
     margin-bottom: 15px;
     color: #EF6767;
     width: 100%;
     text-align: center;
 }
 
+.form-container form .success {
+    margin-bottom: 15PX;
+    color: rgb(33, 204, 33);
+    width: 100%;
+    text-align: center;
+}
 /* style add pet destop version */
 @media (min-width: 600px) {
     .form-container form {
