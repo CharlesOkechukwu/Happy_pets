@@ -1,4 +1,14 @@
-{% include 'header.html' %}
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/health_tracker.css') }}">
+<script type="module" src="{{ url_for('static', filename='js/health_tracker.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
 <main class="main-container" style="background-color: #CCCCCC;">
     <div class="profile-icon">
         <img src="/static/images/puppy.jfif" alt="profile photo">
@@ -102,5 +112,4 @@
         </div>
     </div>
 </main>
-<script src="/static/js/health_tracker.js"></script>
-{% include 'footer.html' %}
+{% endblock %}

@@ -1,4 +1,12 @@
-{% include 'header.html' %}
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/add_pet.css') }}">
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
 <main class="form-container">
     <form class="add-pet" enctype="multipart/form-data" action="{{ url_for('views.add_pet') }}" method="post">
         <h3>Add a Pet</h3>
@@ -22,4 +30,4 @@
         <button type="submit">Add Pet</button>
     </form>
 </main>
-{% include 'footer.html' %}
+{% endblock %}
