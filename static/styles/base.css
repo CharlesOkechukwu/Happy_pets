@@ -155,6 +155,72 @@ text-decoration: none;
     display: block;
 }
 
+/* Hero Section */
+.hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    color: #CCCCCC;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.hero-content .btn-primary {
+    background-color: #a52a2a;
+    color: #CCCCCC;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+.hero-content .btn-primary:hover {
+    background-color: #272727;
+}
+
+/* Services Section */
+.services {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 40px;
+    color:#CCCCCC;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #CCCCCC;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+}
+
+.service-card img {
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
 
 /* Styling footer content */
 .footer-content {
