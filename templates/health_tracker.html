@@ -1,0 +1,106 @@
+{% include 'header.html' %}
+<main class="main-container" style="background-color: #CCCCCC;">
+    <div class="profile-icon">
+        <img src="/static/images/puppy.jfif" alt="profile photo">
+        <h4>Pet Name<span>(Breed)</span></h4>
+    </div>
+    <div class="content">
+        <div class="nav-bar">
+            <a href="#" class="mini-nav active" id="records">Health Records</a>
+            <a href="#" class="mini-nav" id="growth">Growth Tracking</a>
+            <a href="#" class="mini-nav" id="symptoms">Symptom Checker</a>
+        </div>
+        <div class="health-records" id="health-record">
+            <h3>Vaccination History</h3>
+            <table class="vaccination">
+                <tr>
+                    <td>S/N</td>
+                    <td>Vaccine Name</td>
+                    <td>Number of Doses</td>
+                    <td>Date of Frist Dose</td>
+                    <td>Date of Second Dose</td>
+                </tr>
+            </table>
+            <p>No records yet!</p>
+
+            <h3 class="table-title">Medical Conditions</h3>
+            <table class="med-conditions">
+                <tr>
+                    <td>Date</td>
+                    <td>Name of Condition</td>
+                    <td>Diagnosis</td>
+                    <td>Vet Doctor</td>
+                    <td>Treatment</td>
+                </tr>
+            </table>
+            <p>No Medical Conditions</p>
+
+            <h3 class="table-title">Vet Visits</h3>
+            <table class="pet-visits">
+                <tr>
+                    <td>S/N</td>
+                    <td>Date</td>
+                    <td>Time of Visist</td>
+                    <td>Duration</td>
+                    <td>Vet Doctor</td>
+                </tr>
+            </table>
+            <p>No records yet!</p>
+        </div>
+        <div class="growth-tracking hide" id="track-growth">
+            <div class="growth-data">
+                <img src="/static/images/puppy-growth-chart.png" alt="growth chart">
+                <div class="size-data">
+                    <h5>Height:</h5>
+                    <p>3ft 6inches<span>(15%+)</span></p>
+
+                    <h5>Weight:</h5>
+                    <p>25lbs<span>(25%+)</span></p>
+                </div>
+            </div>
+            <h3 class="table-title">Growth in Last Five Years</h3>
+            <table class="med-conditions">
+                <tr>
+                    <td></td>
+                    <td>2020</td>
+                    <td>2021</td>
+                    <td>2022</td>
+                    <td>2023</td>
+                    <td>2024</td>
+                    <td>Percentage Growth</td>
+                </tr>
+                <tr>
+                    <td style="font-style:bold; font-weight:700;">Height</td>
+                    <td>2ft5"</td>
+                    <td>2ft8"</td>
+                    <td>3ft</td>
+                    <td>3ft3"</td>
+                    <td>3ft6"</td>
+                    <td>40%+</td>
+                </tr>
+                <tr>
+                    <td style="font-style:bold; font-weight:700;">Weight</td>
+                    <td>17lbs</td>
+                    <td>19lbs</td>
+                    <td>21lbs</td>
+                    <td>23lbs</td>
+                    <td>25lbs</td>
+                    <td>50%+</td>
+                </tr>
+            </table>
+            <p class="info">Records Not Sufficient!</p>
+        </div>
+        <div class="symptom-checker hide" id="check-symptom">
+            <form>
+                <h3> Check Pet Symptoms</h3>
+                <label for="breed">Breed:</label><br>
+                <input type="text" id="breed" name="breed" placeholder="Breed"><br>
+                <label for="symptoms">Symptoms Observed:</label><br>
+                <textarea id="symptoms" name="symptoms" placeholder="Symptoms"></textarea><br>
+                <button type="submit">Diagnose Symptoms</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="/static/js/health_tracker.js"></script>
+{% include 'footer.html' %}
