@@ -265,8 +265,3 @@ text-decoration: none;
 .footer-social img {
     height: 20px;
 }
-
-/* main styling */
-main {
-    z-index: 1; /* Ensure main content is behind header and footer */
-}
