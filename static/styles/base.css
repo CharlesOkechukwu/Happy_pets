@@ -1,37 +1,33 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Style html element */
 html {
-    height: 100%;
-    width: 100%;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-
+/* boby styling */
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-image: url('../images/backgrounddarker_resized\ \(1\).jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.container {
-    background-color: #A52A2A;
+/* header styling */
+header {
+    background-color: #a52a2a;
     padding: 10px;
     color: #CCCCCC;
-    width: 100%;
+    text-align: center;
+    min-width: 100%;
+    height: auto;
     position: fixed;
     top: 0;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    z-index: 1000; 
 }
 
-<<<<<<< HEAD
 /* footer styling */
 footer {
     background-color: #272727;
@@ -46,72 +42,70 @@ footer {
 }
 
 /* Styling the logo navigation container */
-=======
->>>>>>> charles-branch
 .logo-nav-container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+    margin-top: 2px;
+    margin-left: 300px;
 }
-
 .logo-container img {
     height: 55px;
-    padding-left: 50px;
 }
 
-nav {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+/* Style a navbar */
+.navbar {
+margin-left: 150px;
+font-size: 18px;
 }
 
-nav a {
-    color: #CCCCCC;
-    text-decoration: none;
-    padding: 0 15px;
+.navbar a {
+color: #CCCCCC;
+margin-right: 20px;
+text-decoration: none;
 }
-nav a:hover {
+
+/* Styling nav */
+.navbar a:hover {
     text-decoration: underline;
 }
-
 .search-form {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    margin-left: 550px;
+}
+
+.search-div {
+    display: flex;
 }
 .search-input {
     padding: 8px;
     margin-right: 20px;
     border: 1px solid #CCCCCC;
-    border-radius: 3px;
+    border-radius: 4px;
     font-size: 10px;
-    width: 250px;
+    width: 330px;
 }
-
 .search-button {
     padding: 8px 16px;
-    margin-right: 198px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     color: #272727;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 10px;
+    width: 20%;
 }
-
 .account-options {
     display: flex;
     align-items: center;
     color: #CCCCCC;
     margin-left: 10px;
+    margin-top: px;
 }
 .account-options a {
     color: #CCCCCC;
@@ -119,6 +113,7 @@ nav a:hover {
     padding: 0 10px;
     display: flex;
     align-items: center;
+    font-size: 18px;
 }
 .account-options a:hover {
     text-decoration: underline;
@@ -128,7 +123,6 @@ nav a:hover {
     margin-right: 5px;
 }
 
-<<<<<<< HEAD
 .dropdown {
     position: relative;
     display: inline-block;
@@ -231,45 +225,42 @@ nav a:hover {
 /* Styling footer content */
 .footer-content {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
 }
-
 .footer-column {
-    flex: 1;
-    min-width: 100px;
-    margin: 3px;
+    margin: 2px;
+    margin-right: 32px;
 }
-
 .footer-column h4 {
     margin-bottom: 3px;
+    text-align: left;
 }
-
 .footer-column ul {
     list-style: none;
     padding: 0;
 }
 .footer-column ul li {
     margin-bottom: 3px;
+    text-align: left;
 }
 .footer-column ul li a {
     color: #CCCCCC;
     text-decoration: none;
+    font-style: italic;
 }
 .footer-column ul li a:hover {
     text-decoration: underline;
 }
 .footer-social {
-    display: flex;
-    justify-content: center;
+    width: fit-content;
     margin-top: 10px;
+    margin-left: 31%;
 }
 .footer-social a {
     margin: 0 15px;
     color: #CCCCCC;
     font-size: 15px;
     margin-bottom: 20px;
-<<<<<<< HEAD
 }
 .footer-social img {
     height: 20px;
