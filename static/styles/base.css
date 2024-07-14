@@ -157,7 +157,6 @@ text-decoration: none;
 
 /* Hero Section */
 .hero {
-    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
     color: #CCCCCC;
     text-align: center;
     padding: 100px 20px;
