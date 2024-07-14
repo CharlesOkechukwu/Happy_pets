@@ -6,6 +6,7 @@ import os
 from flask import Flask
 from flask_caching import Cache
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 
 # Add database and db name
@@ -22,6 +23,12 @@ def create_app(config_class='config.DevelopmentConfig'):
 
     # initialize the database with the app
     db.init_app(app)
+
+    # Initialize Flask-Login with the Flask app &
+    # set the login view for Flask-Login to redirect to if a user needs to log in
+    login_manager = LoginManager(app)
+    login_manager.login_view = 'auth.login'
+
     
     from .views import views
     from .auth import auth
@@ -33,6 +40,11 @@ def create_app(config_class='config.DevelopmentConfig'):
 
     # import the user model
     from models import User
+
+    # Manage the user session
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
 
     # Create the database if it does not exist
     with app.app_context():

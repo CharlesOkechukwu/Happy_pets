@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="{{ url_for('static', filename='js/hide_footer_on_scroll.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/alert_btn.js') }}"></script>
     <title>{% block title %}{% endblock %}</title>
     {% endblock %}
 </head>
@@ -36,6 +38,7 @@
                 <div class="dropdown-content">
                     <a href="{{ url_for('auth.register') }}">Register</a>
                     <a href="{{ url_for('auth.login') }}">Login</a>
+                    <a href="{{ url_for('auth.logout') }}">Logout</a>
                     <a href="{{ url_for('auth.register') }}">Add a Pet</a>
                 </div>
             </div>
@@ -58,7 +61,7 @@
         </form>
     </header>
     {% block content %}{% endblock %}
-    <footer>
+    <footer id="footer">
         <div class="footer-content">
             <div class="footer-column">
                 <h4>About HappyPet</h4>
