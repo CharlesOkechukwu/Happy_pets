@@ -34,6 +34,7 @@ footer {
     color: #CCCCCC;
     text-align: center;
     padding: 10px;
+    margin-top: auto;
     position: fixed;
     bottom: 0;
     width: 100%;

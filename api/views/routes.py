@@ -38,7 +38,7 @@ def add_pet():
         if birth_date == '':
             flash("Enter pet's date of date of birth", 'error')
         else:
-            pet.birth_date = date(birth_date)
+            pet.birth_date = date(*map(int, birth_date.split('-')))
         if color == '':
             flash("Enter pet's color", 'error')
         else:

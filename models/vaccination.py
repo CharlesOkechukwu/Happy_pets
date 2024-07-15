@@ -11,5 +11,6 @@ class Vaccination(db.Model):
     dose_number = db.Column(db.Integer, nullable=False)
     date_administered = db.Column(db.Date, nullable=False)
     next_due_date = db.Column(db.Date, nullable=True)
+    vet_id = db.Column(db.Integer, db.ForeignKey('vet.vet_id'), nullable=False)
     vet_name = db.Column(db.String(200), nullable=False)
     doses_left = db.Column(db.Integer, nullable=False)
