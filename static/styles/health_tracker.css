@@ -5,6 +5,7 @@ main {
     margin-top: 110px;
     font-style: bold;
     font-family: "Inter", sans-serif;
+    opacity: 0.75;
 }
 
 /* mobile version styles */

@@ -28,3 +28,11 @@ virtualenv==20.24.6
 virtualenvwrapper-win==1.2.7
 Werkzeug==3.0.3
 WTForms==3.1.2
+
+flask
+flask-cors
+pycodestyle
+SQLAlchemy
+mysqlclient
+bcrypt
+Flask-SQLAlchemy

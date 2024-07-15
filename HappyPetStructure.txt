@@ -1,7 +1,6 @@
 HappyPets/
 ├── api/
 │   ├── __init__.py
-│   ├── config.py           # Configuration settings for the Flask app
 │   ├── auth/
 │   │   ├── __init__.py     # Imports here are available to the Auth package
 │   │   ├── forms.py        # Forms for authentication (e.g., login, registration)
