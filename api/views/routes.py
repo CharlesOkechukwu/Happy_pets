@@ -8,7 +8,7 @@ from werkzeug.utils import secure_filename
 
 @views.route('/')
 def home():
-    return render_template("service_dir.html")
+    return render_template("home.html")
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
 def add_pet():
@@ -58,7 +58,7 @@ def allowed_file(filename):
 
 def upload_photo(file):
     """ulpload photo function"""
-    upload_folder = os.path.join('static', 'uploads')
+    upload_folder = os.path.join('static', 'uploads_img')
     current_app.config['UPLOAD'] = upload_folder
     filename = secure_filename(file.filename)
     if filename == '':
