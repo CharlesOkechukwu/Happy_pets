@@ -9,22 +9,39 @@ Users can add photos,write descriptions, and share their pets profile with other
 [Contributing](#contributing)
 -[License](#licence)
 
-##Installation
+## Installation
 
-To get started with the Happy pet Protfolio project, follow these steps:
-
-1. Clone thr repository
-  ```bash
+1. **Clone the repository**:
+    ```bash
     git clone https://github.com/yourusername/happy-pet-portfolio.git
-  ```
-2. Navigate to the project directory:
-   ```bash
-   cd HappyPet
-   ```
-3. Install the dependencies:
-   ```bash
-   npm install
-   ```
+    cd happy-pet-portfolio
+    ```
+
+2. **Create a virtual environment**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+    
+
+3. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Set up the database**:
+    ```bash
+    flask db init
+    flask db migrate -m "Initial migration"
+    flask db upgrade
+    ```
+
+
+##Features
+. User authentication
+. Profile creation and management
+. Uplaod and display pet photos
+. Responsive design
 
 ##Usage
 
@@ -33,25 +50,22 @@ To run the project locally, use the following command:
 python3 app.py
 ```
 
-Features
-. Create and manage pet profiles
-. Uplaod and display pet photos
-. Write and edit descriptipons for each pet
-. share pet profile with friends
+##Requirements
 
-Contributing
-We welcome contributions from community! To contribute, follow these steps:
+- Python 3.x
+- Flask
+- Flask-Login
+- Flask-WTF
+- Flask-SQLAlchemy
+  
+
+## Contributing
+
 1. Fork the repository
-2. Create a new branch with your feature or bug fix:
-   git checkout -b feature-name
-
-3. Commit your changes:
-   git commit -m "Add new Feature"
-
-4. Push to the branch
-   git push prigin feature-name
-
-Create a pull request.
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Create a new Pull Request
 
 Licience
 This project is licensed under the MIT License. See the LICENSE file for more information.
