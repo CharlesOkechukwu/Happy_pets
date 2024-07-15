@@ -4,6 +4,8 @@ from api import db
 from api.views import views
 from models import Pet
 from werkzeug.utils import secure_filename
+from datetime import date
+from flask_login import login_required
 
 
 @views.route('/')
@@ -11,6 +13,7 @@ def home():
     return render_template("home.html")
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
+@login_required
 def add_pet():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -37,7 +40,7 @@ def add_pet():
         if birth_date == '':
             flash("Enter pet's date of date of birth", 'error')
         else:
-            pet.birth_date = birth_date
+            pet.birth_date = date(birth_date)
         if color == '':
             flash("Enter pet's color", 'error')
         else:
@@ -75,9 +78,11 @@ def upload_photo(file):
 
 
 @views.route('/health', methods=['GET'], strict_slashes=False)
+@login_required
 def health():
     return render_template("health_tracker.html")
 
 @views.route('/base')
+@login_required
 def index():
     return render_template('base.html')

@@ -63,3 +63,14 @@
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+/* Style the h4 element */
+h4 {
+    text-align:center;
+    color:#272727; 
+}
+
+h4 a{
+    text-decoration: none;
+    color: #A52A2A;
+}
