@@ -1,5 +1,5 @@
 # Happy Pets Web Application
-Happy Pet Portfolio is a web application built with Python and Flask. This application allows users to create and manage profiles for their pets, including photos, descriptions, and other details.
+Happy Pet Portfolio is a web application built with Python Flask framework. This application allows users to create and manage profiles for their pets, including photos, descriptions, and other details.
 
 
 ## Table of Contents
@@ -37,20 +37,20 @@ Happy Pet Portfolio is a web application built with Python and Flask. This appli
     ```
 
 
-##Features
+## Features
 . User authentication
 . Profile creation and management
 . Uplaod and display pet photos
 . Responsive design
 
-##Usage
+## Usage
 
 To run the project locally, use the following command:
 ```bash
 python3 app.py
 ```
 
-##Requirements
+## Requirements
 
 - Python 3.x
 - Flask
