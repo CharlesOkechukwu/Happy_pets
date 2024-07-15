@@ -4,6 +4,7 @@ from api import db
 from api.views import views
 from models import Pet
 from werkzeug.utils import secure_filename
+from datetime import date
 
 
 @views.route('/')
@@ -37,7 +38,7 @@ def add_pet():
         if birth_date == '':
             flash("Enter pet's date of date of birth", 'error')
         else:
-            pet.birth_date = birth_date
+            pet.birth_date = date(birth_date)
         if color == '':
             flash("Enter pet's color", 'error')
         else:
