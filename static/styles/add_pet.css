@@ -3,6 +3,7 @@
     color: #272727;
     background: none;
     margin-top: 120px;
+    width: 100%;
 }
 
 /* style form mobile version */
@@ -13,6 +14,8 @@
     box-shadow: 1px 2px 4px #272727;
     background-color: #CCCCCC;
     border-radius: 5%;
+    opacity: 0.75;
+    color: brown;
 }
 
 /* style form input and header*/
@@ -37,10 +40,13 @@
     padding: 5px;
     border-radius: 8px;
     box-shadow: 1px 1px 3px #272727;
-    background-color: #272727;
+    background-color: brown;
     color: #CCCCCC;
 }
 
+.form-container form button:hover {
+    background-color: #272727;
+}
 .form-container form .error {
     margin-bottom: 15px;
     color: #EF6767;

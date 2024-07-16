@@ -13,7 +13,7 @@ def home():
     return render_template("home.html")
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
-@login_required
+
 def add_pet():
     if request.method == 'POST':
         name = request.form.get('name')
