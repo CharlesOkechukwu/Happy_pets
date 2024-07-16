@@ -3,7 +3,9 @@ from flask import render_template, request, flash, redirect, url_for, current_ap
 from api import db
 from api.views import views
 from models import Pet
-from werkzeug.utils import secure_filename
+from datetime import date
+from flask_login import login_required
+from . import upload_photo
 
 
 @views.route('/')
@@ -11,6 +13,7 @@ def home():
     return render_template("home.html")
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
+@login_required
 def add_pet():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -37,7 +40,7 @@ def add_pet():
         if birth_date == '':
             flash("Enter pet's date of date of birth", 'error')
         else:
-            pet.birth_date = birth_date
+            pet.birth_date = date(*map(int, birth_date.split('-')))
         if color == '':
             flash("Enter pet's color", 'error')
         else:
@@ -50,28 +53,6 @@ def add_pet():
             flash("Pet added successfully", 'success')
         return redirect(url_for('views.add_pet'))
     return render_template("add_pet.html")
-
-def allowed_file(filename):
-    """check if file is allowed"""
-    allowed = ['png', 'jpg', 'jpeg']
-    return '.' in filename and filename.split('.')[-1] in allowed
-
-def upload_photo(file):
-    """ulpload photo function"""
-    upload_folder = os.path.join('static', 'uploads_img')
-    current_app.config['UPLOAD'] = upload_folder
-    filename = secure_filename(file.filename)
-    if filename == '':
-        flash("Upload pet's photo", 'error')
-        return None
-    else:
-        if file and allowed_file(filename):
-            file.save(os.path.join(current_app.config['UPLOAD'], filename))
-            photo_path = os.path.join(current_app.config['UPLOAD'], filename)
-        else:
-            flash("File not allowed", 'error')
-            return None
-    return photo_path
 
 
 @views.route('/health', methods=['GET'], strict_slashes=False)
