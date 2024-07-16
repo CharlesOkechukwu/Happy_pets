@@ -4,7 +4,7 @@ from api import db
 from api.views import views
 from models import Pet
 from datetime import date
-from flask_login import login_required
+from flask_login import login_required, current_user
 from . import upload_photo
 
 
@@ -24,7 +24,7 @@ def add_pet():
         photo = request.files.get('photo')
         
         pet = Pet()
-        pet.owner_id = 1
+        pet.owner_id = current_user.id # Use current_user.id to set the owner_id
         if name == '':
             flash("You must enter your pet name!!", 'error')
         else:

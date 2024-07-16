@@ -12,5 +12,5 @@ class Pet(db.Model):
     breed = db.Column(db.String(200), nullable=False)
     birth_date = db.Column(db.Date, nullable=False)
     color = db.Column(db.String(200), nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False) # ForeignKe to User
     photo = db.Column(db.String(200), nullable=False)
