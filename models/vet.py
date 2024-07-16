@@ -14,4 +14,9 @@ class Vet(db.Model, UserMixin):
     city = db.Column(db.String(200), nullable=False)
     state = db.Column(db.String(200), nullable=False)
     country = db.Column(db.String(200), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
     photo = db.Column(db.String(200), nullable=False)
+
+    def get_id(self):
+        """overried get_id method and return vet_id"""
+        return self.vet_id

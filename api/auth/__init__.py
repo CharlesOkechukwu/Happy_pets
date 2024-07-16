@@ -5,5 +5,5 @@
 from flask import Blueprint, render_template, url_for, redirect
 
 auth = Blueprint('auth', __name__)
-from .utils import hash_password, verify_password, authenticate_user
+from .utils import hash_password, verify_password, authenticate_user, authenticate_vet
 from api.auth import routes
