@@ -17,7 +17,7 @@ class RegistrationForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()], render_kw={"placeholder": "Enter your email"})
     phonenumber = StringField('Phone Number', validators=[DataRequired(), Length(min=10, max=15)], render_kw={"placeholder": "Enter your phone number"})
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6)], render_kw={"placeholder": "Enter your password"})
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')], render_kw={"placeholder": "Confirm password"})
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message='Passwords must match')], render_kw={"placeholder": "Confirm password"})
     submit = SubmitField('Sign Up')
 
     def validate_email(self, email):
@@ -28,12 +28,23 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Email is already taken. Please choose a different one.')
 
     def validate_phonenumber(self, phonenumber):
-        """Verify the password field from the form"""
+        """Verify the phone number field from the form is already taken"""
         user = User.query.filter_by(phonenumber=phonenumber.data).first()
         if user:
             flash('Phone number is already taken. Please choose a different one.', 'error')
             raise ValidationError('Phone number is already taken. Please choose a different one.')
         
+    def validate_phonenumber(self, phonenumber):
+        """Verify if the phonenmber from the form is integer"""
+        if not phonenumber.data.isdigit():
+            flash('Phone number must be digit only.', 'error')
+            raise ValidationError('Phone number must be digit only.')
+        
+    def validate_confirm_password(self, confirm_password):
+        """Check password equality"""
+        if confirm_password.data != self.password.data:
+            flash('Passwords must match, type again.', 'error')
+            raise ValidationError('Passwords must match, type again.')
 
 # Form for login       
 class LoginForm(FlaskForm):
