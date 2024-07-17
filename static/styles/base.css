@@ -306,14 +306,21 @@ input[type="radio"]:checked + .slides .pet-card {
     transition: background-color 0.6s ease;
 }
 
+.navigation label:active {
+    background-color: #272727;
+}
+
+
 .navigation label:hover, input[type="radio"]:checked + .slides ~ .navigation label[for="slide1"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide2"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide3"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide4"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide5"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide6"] {
+input[type="radio"]:checked + .slides ~ .navigation label[for="slide6"],
+input[type="radio"]:checked + .slides ~ .navigation label[for="slide7"] {
     background-color: #717171;
 }
+
 
 /* Slider transitions */
 #slide1:checked ~ .slides .pet-card:nth-child(1),
@@ -321,7 +328,8 @@ input[type="radio"]:checked + .slides ~ .navigation label[for="slide6"] {
 #slide3:checked ~ .slides .pet-card:nth-child(3),
 #slide4:checked ~ .slides .pet-card:nth-child(4),
 #slide5:checked ~ .slides .pet-card:nth-child(5),
-#slide6:checked ~ .slides .pet-card:nth-child(6) {
+#slide6:checked ~ .slides .pet-card:nth-child(6),
+#slide6:checked ~ .slides .pet-card:nth-child(7) {
     display: block;
 }
 
