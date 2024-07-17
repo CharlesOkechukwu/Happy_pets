@@ -1,26 +1,31 @@
 $(document).ready(function () {
-    $("#records").click(function () {
-        $("#records").addClass("active");
-        $("#growth").removeClass("active");
-        $("#symptoms").removeClass('active');
-        $("#track-growth").addClass("hide");
-        $("#check-symptom").addClass("hide")
-        $("#health-record").removeClass("hide");
+    $(".mini-nav.records").click(function () {
+        const petId = $(this).attr('id').split('-')[1];
+        $("#records-" + petId).addClass("active");
+        $("#growth-" + petId).removeClass("active");
+        $("#symptoms-" + petId).removeClass("active");
+        $("#track-growth-" + petId).addClass("hide");
+        $("#check-symptom-" + petId).addClass("hide");
+        $("#health-record-" + petId).removeClass("hide");
     });
-    $("#growth").click(function () {
-        $("#records").removeClass("active");
-        $('#symptoms').removeClass('active');
-        $("#growth").addClass('active');
-        $("#track-growth").removeClass("hide");
-        $('#health-record').addClass('hide');
-        $("#check-symptom").addClass("hide");
+
+    $(".mini-nav.growth").click(function () {
+        const petId = $(this).attr('id').split('-')[1];
+        $("#records-" + petId).removeClass("active");
+        $("#symptoms-" + petId).removeClass("active");
+        $("#growth-" + petId).addClass("active");
+        $("#track-growth-" + petId).removeClass("hide");
+        $("#health-record-" + petId).addClass("hide");
+        $("#check-symptom-" + petId).addClass("hide");
     });
-    $("#symptoms").click(function () {
-        $("#growth").removeClass("active");
-        $("#records").removeClass("active");
-        $("#symptoms").addClass('active');
-        $("#check-symptom").removeClass("hide");
-        $("#track-growth").addClass("hide");
-        $("#health-record").addClass("hide");
+
+    $(".mini-nav.symptoms").click(function () {
+        const petId = $(this).attr('id').split('-')[1];
+        $("#growth-" + petId).removeClass("active");
+        $("#records-" + petId).removeClass("active");
+        $("#symptoms-" + petId).addClass("active");
+        $("#check-symptom-" + petId).removeClass("hide");
+        $("#track-growth-" + petId).addClass("hide");
+        $("#health-record-" + petId).addClass("hide");
     });
 });

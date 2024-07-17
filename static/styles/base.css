@@ -211,6 +211,7 @@ text-decoration: none;
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
+    opacity: 0.75;
 }
 
 .service-card:hover {
@@ -233,10 +234,13 @@ text-decoration: none;
     padding: 20px;
     background-color: #CCCCCC;
     text-align: center;
+    opacity: 0.75;
+    margin: 0 500px 50px 500px;
+    border-radius: 8px;
 }
 
-.available-pets h2 {
-    color: #a52a2a;
+.available-pets h3 {
+    color: #272727;
     font-size: 2em;
     margin-bottom: 20px;
 }
@@ -306,11 +310,6 @@ input[type="radio"]:checked + .slides .pet-card {
     transition: background-color 0.6s ease;
 }
 
-.navigation label:active {
-    background-color: #272727;
-}
-
-
 .navigation label:hover, input[type="radio"]:checked + .slides ~ .navigation label[for="slide1"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide2"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide3"],
@@ -318,9 +317,12 @@ input[type="radio"]:checked + .slides ~ .navigation label[for="slide4"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide5"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide6"],
 input[type="radio"]:checked + .slides ~ .navigation label[for="slide7"] {
-    background-color: #717171;
+    background-color: #272727;
 }
 
+input[type="radio"]:checked + label {
+    background-color: #272727;
+}
 
 /* Slider transitions */
 #slide1:checked ~ .slides .pet-card:nth-child(1),

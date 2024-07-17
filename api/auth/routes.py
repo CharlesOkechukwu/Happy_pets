@@ -39,7 +39,7 @@ def login():
         user = authenticate_user(form.email.data)
         if user:
             login_user(user)
-            return redirect (url_for('views.home'))
+            return redirect (url_for('views.userdashboard'))
     return render_template('login.html', title='Sign In', form=form)
 
 @auth.route('/logout', methods=['GET', 'POST'])

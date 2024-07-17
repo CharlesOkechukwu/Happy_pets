@@ -56,8 +56,17 @@ def add_pet():
 
 
 @views.route('/health', methods=['GET'], strict_slashes=False)
+@login_required
 def health():
-    return render_template("health_tracker.html")
+    user_pets = Pet.query.filter_by(owner_id=current_user.id).all()
+    return render_template("health_tracker.html", user=current_user, pets=user_pets)
+
+@views.route('/userdashboard')
+@login_required
+def userdashboard():
+    # Retrieve the logged-in user's pets
+    user_pets = Pet.query.filter_by(owner_id=current_user.id).all()
+    return render_template('userdashboard.html', user=current_user, pets=user_pets)
 
 @views.route('/base')
 def index():
