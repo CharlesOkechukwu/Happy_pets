@@ -10,7 +10,7 @@ from . import upload_photo
 
 @views.route('/')
 def home():
-    return render_template("home.html")
+    return render_template("home.html", title='Home page')
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
