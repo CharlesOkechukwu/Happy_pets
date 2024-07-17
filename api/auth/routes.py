@@ -84,5 +84,5 @@ def vet_login():
         if vet:
             login_user(vet)
             session['vet_id'] = vet.vet_id
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.vet'))
     return render_template('vet_login.html', title='Vet Sign In', form=form)

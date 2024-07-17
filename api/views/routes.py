@@ -1,8 +1,8 @@
 import os
-from flask import render_template, request, flash, redirect, url_for, current_app
+from flask import render_template, request, flash, redirect, url_for, current_app, session
 from api import db
 from api.views import views
-from models import Pet
+from models import Pet, Vet, Appointment
 from datetime import date
 from flask_login import login_required
 from . import upload_photo
@@ -13,7 +13,7 @@ def home():
     return render_template("home.html")
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
-
+@login_required
 def add_pet():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -62,3 +62,14 @@ def health():
 @views.route('/base')
 def index():
     return render_template('base.html')
+
+@views.route('/vet', methods=['GET'], strict_slashes=False)
+@login_required
+def vet():
+    """vet doctor dashboard"""
+    if session['vet_id'] is not None:
+        vet_id = session['vet_id']
+        vet = Vet.query.filter_by(vet_id=vet_id).first()
+        appointments = Appointment.query.filter_by(vet_id=vet_id).order_by(Appointment.time.desc()).all()
+        return render_template('vet_home.html', vet=vet, appointments=appointments)
+    return redirect(url_for('auth.vet_login'))
