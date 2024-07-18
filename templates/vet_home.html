@@ -9,10 +9,9 @@
 {% block content %}
 <main class="vet-container">
     <div class="vet-nav">
-        <img src="/static/uploads_img/myphoto.jpg" alt="vet doctor photo">
+        <img src="{{ vet.photo }}" alt="vet doctor photo">
         <ul>
             <li><a href="#">Appointments</a></li>
-            <li><a href="#">Vet Session</a></li>
             <li><a href="#">Add Vaccination Record</a></li>
             <li><a href="#">Add Medical Record</a></li>
             <li><a href="#">Add Growth Data</a></li>
@@ -41,30 +40,11 @@
                     <td>{{ appointment.appointment_type }}</td>
                     <td>{{ appointment.info }}</td>
                     <td>{{ appointment.contact }}</td>
-                    <td><button>Start</button></td>
+                    <td><button><a href="{{ url_for('views.vet_session', pet_id=appointment.pet_id, a_id=appointment.a_id)}}">Start</a></button></td>
                     <td></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <div id="vet-session">
-            <h2>Vet Session</h2>
-            <div class="session-intro">
-                <img src="/static/uploads_img/murphy.jpg" alt="pet photo">
-                <div class="pet-details">
-                    <p>Pet Name</p>
-                    <p><span>Age:</span> 2 Years</p>
-                    <p><span>Specie:</span> Dog</p>
-                    <p><span>Breed:</span> German Shepherd</p>
-                    <p><span>Color:</span> Brown</p>
-                </div>
-            </div>
-            <h6>Vet Session type: Checkup</h6>
-            <h6>Sessions Details:</h6>
-            <p>Checkup on pet growth and health status</p>
-            <button><a href="#">View Pet's Health Record</a></button>
-            <button class="end-session"><a href="#"><i class="fa-solid fa-x"></i> End Pet Session </a></button>
-        </div>
-    </div>
 </main>
 {% endblock %}

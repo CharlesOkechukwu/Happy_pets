@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/vet_home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<main class="vet-container">
+    <div class="vet-nav">
+        <img src="/{{ vet.photo }}" alt="vet doctor photo">
+        <ul>
+            <li><a href="#">Appointments</a></li>
+            <li><a href="#">Vet Session</a></li>
+            <li><a href="#">Add Vaccination Record</a></li>
+            <li><a href="#">Add Medical Record</a></li>
+            <li><a href="#">Add Growth Data</a></li>
+            <li><a href="#">Account Update</a></li>
+        </ul>
+    </div>
+    <div class="vet-content">
+        <h3>Welcome Dr {{ vet.name }}</h3>
+        <div id="vet-session">
+            <h2>Vet Session</h2>
+            <div class="session-intro">
+                <img src="/{{ pet.photo }}" alt="pet photo">
+                <div class="pet-details">
+                    <p style="font-style:bold;">{{ pet.name }}</p>
+                    <p><span>Age: {{ pet_age }}</span> Years</p>
+                    <p><span>Specie: {{ pet.specie }}</span> </p>
+                    <p><span>Breed:</span> {{ pet.breed }}</p>
+                    <p><span>Color:</span> {{ pet.color }} </p>
+                </div>
+            </div>
+            <h6>Vet Session type: {{ appointment.appointment_type }}</h6>
+            <h6>Sessions Details: {{ appointment.info }}</h6>
+            <p></p>
+            <button><a href="#">View Pet's Health Record</a></button>
+            <button class="end-session"><a href="{{ url_for('views.end_session', a_id=appointment.a_id) }}"><i class="fa-solid fa-x"></i> End Pet Session </a></button>
+        </div>
+        <div class="register-container" id="vaccination">
+            <h4>Add Vaccination Record</h4>
+            <form method="POST">
+                <div class="field">
+                    {{ vacc_form.vaccine_name.label }}<br>
+                    {{ vacc_form.vaccine_name(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ vacc_form.dose_number.label }}<br>
+                    {{ vacc_form.dose_number(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ vacc_form.date_administered.label }}<br>
+                    {{ vacc_form.date_administered(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ vacc_form.next_due_date.label }}<br>
+                    {{ vacc_form.next_due_date(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ vacc_form.doses_left.label }}<br>
+                    {{ vacc_form.doses_left(class="form-ctr") }}
+                </div>
+                <div class="submit-field">
+                    {{ vacc_form.submit(class="submit-btn") }}
+                </div>
+            </form>
+        </div>
+        <div class="register-container" id="healthrecord">
+            <h4>Add Health Record</h4>
+            <form method="POST">
+                <div class="field">
+                    {{ health_form.vet_doctor.label }}<br>
+                    {{ health_form.vet_doctor(class="form-ctr", readonly="readonly", value=vet.name) }}
+                </div>
+                <div class="field">
+                    {{ health_form.symptoms.label }}<br>
+                    {{ health_form.symptoms(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ health_form.diagnosis.label }}<br>
+                    {{ health_form.diagnosis(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ health_form.treatment.label }}<br>
+                    {{ health_form.treatment(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ health_form.status.label }}<br>
+                    {{ health_form.status(class="form-ctr") }}
+                </div>
+                <div class="submit-field">
+                    {{ health_form.submit(class="submit-btn") }}
+                </div>
+            </form>
+        </div>
+        <div class="register-container" id="growthrecord">
+            <h4>Add Growth Records</h4>
+            <form method="POST">
+                <div class="field">
+                    {{ growth_form.month.label }}<br>
+                    {{ growth_form.month(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ growth_form.year.label }}<br>
+                    {{ growth_form.year(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ growth_form.weight.label }}<br>
+                    {{ growth_form.weight(class="form-ctr") }}
+                </div>
+                <div class="field">
+                    {{ growth_form.height.label }}<br>
+                    {{ growth_form.height(class="form-ctr") }}
+                </div>
+                <div class="submit-field">
+                    {{ growth_form.submit(class="submit-btn") }}
+                </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

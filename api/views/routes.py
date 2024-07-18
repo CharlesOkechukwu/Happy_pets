@@ -1,6 +1,7 @@
 import os
 from flask import render_template, request, flash, redirect, url_for, current_app, session
 from api import db
+from .forms import AddVaccinationForm, HealthRecordForm, GrowthRecordForm
 from api.views import views
 from models import Pet, Vet, Appointment
 from datetime import date
@@ -70,6 +71,35 @@ def vet():
     if session['vet_id'] is not None:
         vet_id = session['vet_id']
         vet = Vet.query.filter_by(vet_id=vet_id).first()
-        appointments = Appointment.query.filter_by(vet_id=vet_id).order_by(Appointment.time.desc()).all()
+        appointments = Appointment.query.filter_by(vet_id=vet_id).order_by(Appointment.time.asc()).all()
         return render_template('vet_home.html', vet=vet, appointments=appointments)
     return redirect(url_for('auth.vet_login'))
+
+@views.route('/vet/session/<pet_id>/<a_id>', strict_slashes=False)
+@login_required
+def vet_session(pet_id, a_id):
+    """start pet vet session"""
+    session['vet_session'] = pet_id
+    vacc_form = AddVaccinationForm()
+    health_form = HealthRecordForm()
+    growth_form = GrowthRecordForm()
+    pet = Pet.query.filter_by(id=pet_id).first()
+    pet_age = pet.pet_age()
+    vet_id = session['vet_id']
+    vet = Vet.query.filter_by(vet_id=vet_id).first()
+    appointment = Appointment.query.filter_by(a_id=a_id).first() 
+    if pet is not None:
+        return render_template('vet_session.html', pet=pet, vet=vet, appointment=appointment, pet_age=pet_age,
+                               vacc_form=vacc_form, health_form=health_form, growth_form=growth_form)
+
+
+@views.route('/vet/session/<a_id>/end', strict_slashes=False)
+@login_required
+def end_session(a_id):
+    """end vet session"""
+    session.pop('vet_session', None)
+    #delete appointment from table
+    appointment = Appointment.query.filter_by(a_id=a_id).first()
+    db.session.delete(appointment)
+    db.session.commit()
+    return redirect(url_for('views.vet'))
