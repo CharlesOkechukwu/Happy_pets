@@ -1,0 +1,172 @@
+/* style container for health tracker page profile header both desktop and mobile */
+main {
+    min-height: 100vh;
+    width: 100%;
+    margin-top: 110px;
+    padding: 10px;
+    font-style: bold;
+    font-family: "Inter", sans-serif;
+    opacity: 0.75;
+    background-color: #CCCCCC;
+}
+
+
+/* mobile version styles */
+main .vet-nav {
+    height: 30%;
+    width: 100%;
+    padding: 15px 0 0 0;
+    color: #272727;
+    text-align: center;
+}
+
+/* style image mobile view */
+main .vet-nav img {
+    height: 85%;
+    width: auto;
+    border-radius: 40%;
+}
+
+/* style for destop view health tracker header */
+@media (min-width: 600px) {
+    main .vet-nav {
+        height: 100%;
+        width: 25%;
+        position: fixed;
+        padding: 10px 0 0 0;
+        text-align: center;
+        font-size: 18px;
+        color: #272727;
+        border-right: 2px solid #272727;
+    }
+
+    /*style image */
+    main .vet-nav img {
+        width: 60%;
+        height: auto;
+        max-height: 25%;
+        border-radius: 50%;
+        margin: 0 15% 0 15%;
+    }
+
+    
+    /* style vet-content h2 */
+    main .vet-nav li {
+        width: 100%;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        border-bottom: 2px solid #272727;
+    }
+
+    /* style vet-content h2 */
+    main .vet-nav li a {
+        text-decoration: none;
+        color: #272727;
+        display: block;
+        padding: 5px;
+    }
+
+    /* style vet-content */
+    main .vet-content {
+        width: 74%;
+        margin-left: 26%;
+        padding: 0 10px 0 10px;
+    }
+
+    main .vet-content h3 {
+        padding: 5px;
+        font-size: 20px;
+    }
+
+    main .vet-content .vet-appointment {
+        margin-top: 15px;
+    }
+
+    main .vet-content .vet-appointment h5 {
+        padding: 5px;
+    }
+
+    main .vet-content .vet-appointment table {
+        width: 100%;
+        margin-top: 15px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    main .vet-content .vet-appointment table th {
+        background-color: brown;
+        color: #CCCCCC;
+        padding: 5px;
+    }
+
+    main .vet-content .vet-appointment table td {
+        padding: 5px;
+        text-align: center;
+    }
+
+    main .vet-content #vet-session {
+        margin-top: 15px;
+    }
+
+    main .vet-content #vet-session h2 {
+        padding: 5px;
+        text-align: center;
+    }
+
+    main .vet-content #vet-session .session-intro {
+        width: 100%;
+        height: auto;
+        max-height: 20%;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        justify-items: center;
+    }
+
+    main .vet-content #vet-session .session-intro img {
+        width: 30%;
+        height: 50%;
+        max-height: 200px;
+        border-radius: 8%;
+
+    }
+
+    main .vet-content #vet-session .session-intro .pet-details {
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    main .vet-content #vet-session h6 {
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    main .vet-content #vet-session p {
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+
+    main .vet-content #vet-session a {
+        color: #CCCCCC;
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+    }
+
+    main .vet-content #vet-session button {
+        width: 30%;
+        background-color: brown;
+        margin-top: 10px;
+    }
+
+    main .vet-content #vet-session button:hover {
+        background-color: #272727;
+    }
+
+    main .vet-content #vet-session .end-session {
+        float: right;
+    }
+}

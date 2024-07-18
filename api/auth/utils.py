@@ -2,7 +2,7 @@
 """Create a Utils file"""
 
 # Imports
-from models import User
+from models import User, Vet
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -16,4 +16,11 @@ def authenticate_user(email):
     user = User.query.filter_by(email=email).first()
     if user:
         return user
+    return None
+
+def authenticate_vet(email):
+    """return vet object if it exists"""
+    vet = Vet.query.filter_by(email=email).first()
+    if vet:
+        return vet
     return None

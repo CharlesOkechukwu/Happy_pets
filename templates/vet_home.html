@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/vet_home.css') }}">
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<main class="vet-container">
+    <div class="vet-nav">
+        <img src="{{ vet.photo }}" alt="vet doctor photo">
+        <ul>
+            <li><a href="#">Appointments</a></li>
+            <li><a href="#">Add Vaccination Record</a></li>
+            <li><a href="#">Add Medical Record</a></li>
+            <li><a href="#">Add Growth Data</a></li>
+            <li><a href="#">Account Update</a></li>
+        </ul>
+    </div>
+    <div class="vet-content">
+        <h3>Welcome Dr {{ vet.name }}</h3>
+        <div class="vet-appointment">
+            <h5>Your appointments for today:</h5>
+            <table>
+                <tr>
+                    <th>Pet Name</th>
+                    <th>Pet Specie</th>
+                    <th>Time</th>
+                    <th>Type</th>
+                    <th>Appointment Details</th>
+                    <th>Owner Contact Details</th>
+                    <th>Start Vet Session</th>
+                </tr>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.vet_name }}</td>
+                    <td>{{ appointment.vet_specie }}</td>
+                    <td>{{ appointment.time }}</td>
+                    <td>{{ appointment.appointment_type }}</td>
+                    <td>{{ appointment.info }}</td>
+                    <td>{{ appointment.contact }}</td>
+                    <td><button><a href="{{ url_for('views.vet_session', pet_id=appointment.pet_id, a_id=appointment.a_id)}}">Start</a></button></td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+</main>
+{% endblock %}

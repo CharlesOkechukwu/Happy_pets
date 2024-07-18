@@ -18,7 +18,7 @@
             {% endfor %}
         {% endif %}
     {% endwith %}<br>
-    <h4 style="text-align: center;">Create Account</h2>
+    <h4 style="text-align: center;">Create a user's account OR <a href="{{ url_for('auth.register_vet') }}">Vet's account</a></h4>
     <form method="POST" action="{{ url_for('auth.register')}}">
         {{ form.hidden_tag() }}
         <div class="field">
@@ -37,13 +37,15 @@
             {{ form.phonenumber.label }}<br>
             {{ form.phonenumber(class="form-ctr") }}
         </div>
-        <div class="field">
+        <div class="field password-container">
             {{ form.password.label }}<br>
-            {{ form.password(class="form-ctr") }}
+            {{ form.password(class="form-ctr", id="password") }}
+            <i class="fa fa-eye toggle-password" id="togglePassword"></i>
         </div>
-        <div class="field">
+        <div class="field password-container">
             {{ form.confirm_password.label }}<br>
-            {{ form.confirm_password(class="form-ctr") }}
+            {{ form.confirm_password(class="form-ctr", id="comfirm_password") }}
+            <i class="fa fa-eye toggle-password" id="toggleConfirmPassword"></i>
         </div>
         <div class="submit-field">
             {{ form.submit(class="submit-btn") }}

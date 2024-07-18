@@ -18,21 +18,22 @@
             {% endfor %}
         {% endif %}
     {% endwith %}<br>
-    <h4 style="text-align: center;">Sign in</h2>
+    <h4 style="text-align: center;">Sign in OR login as a: <a href="{{ url_for('auth.vet_login') }}">Vet. Doctor</a></h4>
     <form method="POST" action="{{ url_for('auth.login')}}">
         {{ form.hidden_tag() }}
         <div class="field">
             {{ form.email.label }}<br>
             {{ form.email(class="form-ctr") }}
         </div>
-        <div class="field">
+        <div class="field password-container">
             {{ form.password.label }}<br>
-            {{ form.password(class="form-ctr") }}
+            {{ form.password(class="form-ctr", id="password") }}
+            <i class="fa fa-eye toggle-password" id="togglePassword"></i>
         </div>
         <div class="submit-field">
             {{ form.submit(class="submit-btn") }}
         </div>
-        <h4>Don't have account: <a href="{{ url_for('auth.register') }}">Register</a></h4>
+        <h4>Don't have account, register: <a href="{{ url_for('auth.register') }}">User</a> -- <a href="{{ url_for('auth.register_vet')}}">Vet user</a></h4>
     </form>
 </div>
 

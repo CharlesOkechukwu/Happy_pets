@@ -19,6 +19,17 @@
     padding: 0 20px 8px 20px;
 }
 
+.password-container {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 63%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 .submit-field {
     text-align: right;
     margin: 16px 16px 16px 0;
