@@ -7,7 +7,7 @@ class GrowthRecord(db.Model):
     __tablename__ = 'petgrowth'
     id = db.Column(db.Integer, primary_key=True)
     pet_id = db.Column(db.Integer, db.ForeignKey('pet.id'), nullable=False)
-    month = db.Column(db.Integer, nullable=False)
+    month = db.Column(db.String(200), nullable=False)
     year = db.Column(db.Integer, nullable=False)
     weight = db.Column(db.Float, nullable=False)
     height = db.Column(db.Float, nullable=False)

@@ -9,9 +9,8 @@ from models import User, Vet, Appointment, Pet, Vaccination, HealthRecord, Growt
 
 class AddVaccinationForm(FlaskForm):
     """Create AddVaccinationForm class form"""
-    vaccine_name = StringField('Vaccine Name', validators=[DataRequired(), Length(min=1, max=20)],render_kw={"placeholder": "Enter vaccine name"})
+    vaccine_name = StringField('Vaccine Name', validators=[DataRequired(), Length(min=4, max=20)],render_kw={"placeholder": "Enter vaccine name"})
     dose_number = IntegerField('Dose Number', validators=[DataRequired()], render_kw={"placeholder": "Enter dose number"})
-    date_administered = DateTimeField('Date Administered', validators=[DataRequired()], render_kw={"placeholder": "Enter date administered"})
     next_due_date = DateField('Next Due Date', validators=[DataRequired()], render_kw={"placeholder": "Enter next vaccination due date"})
     doses_left = IntegerField('Dose Number Left', validators=[DataRequired()], render_kw={"placeholder": "Enter dose number left to complete vaccination"})
     submit = SubmitField('Add')
@@ -24,7 +23,7 @@ class HealthRecordForm(FlaskForm):
     diagnosis = StringField('Diagnosis', validators=[DataRequired(), Length(min=1, max=200)], render_kw={"placeholder": "Enter diagnosis"})
     treatment = StringField('Treatment', validators=[DataRequired(), Length(min=1, max=200)], render_kw={"placeholder": "Enter treatment"})
     status = StringField('Final Comments', validators=[DataRequired(), Length(min=1, max=200)], render_kw={"placeholder": "Enter final comments"})
-    submit = SubmitField('Add Health Record')
+    submit = SubmitField('Add')
 
 
 class GrowthRecordForm(FlaskForm):
@@ -33,4 +32,4 @@ class GrowthRecordForm(FlaskForm):
     year = IntegerField('Year', validators=[DataRequired()], render_kw={"placeholder": "Enter year"})
     weight = IntegerField('Weight', validators=[DataRequired()], render_kw={"placeholder": "Enter weight"})
     height = IntegerField('Height', validators=[DataRequired()], render_kw={"placeholder": "Enter height"})
-    submit = SubmitField('Add Growth Record')
+    submit = SubmitField('Add')

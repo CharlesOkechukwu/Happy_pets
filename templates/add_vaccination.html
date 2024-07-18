@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="register-container" id="vaccination">
+    <h4>Add Vaccination Record</h4>
+    <form method="POST" action="{{ url_for('views.add_vaccine', a_id=appointment.a_id) }}">
+        {{ vacc_form.hidden_tag() }}
+        <div class="field">
+            {{ vacc_form.vaccine_name.label }}<br>
+            {{ vacc_form.vaccine_name(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ vacc_form.dose_number.label }}<br>
+            {{ vacc_form.dose_number(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ vacc_form.next_due_date.label }}<br>
+            {{ vacc_form.next_due_date(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ vacc_form.doses_left.label }}<br>
+            {{ vacc_form.doses_left(class="form-ctr") }}
+        </div>
+        <div class="submit-field">
+            {{ vacc_form.submit(class="submit-btn") }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}

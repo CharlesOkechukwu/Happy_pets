@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="register-container" id="vaccination">
+    <h4>Add Health Record</h4>
+    <form method="POST" action="{{ url_for('views.add_health', a_id=appointment.a_id) }}">
+        {{ health_form.hidden_tag() }}
+        <div class="field">
+            {{ health_form.vet_doctor.label }}<br>
+            {{ health_form.vet_doctor(class="form-ctr", readonly="readonly", value=vet.name) }}
+        </div>
+        <div class="field">
+            {{ health_form.symptoms.label }}<br>
+            {{ health_form.symptoms(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ health_form.diagnosis.label }}<br>
+            {{ health_form.diagnosis(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ health_form.treatment.label }}<br>
+            {{ health_form.treatment(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ health_form.status.label }}<br>
+            {{ health_form.status(class="form-ctr") }}
+        </div>
+        <div class="submit-field">
+            {{ health_form.submit(class="submit-btn") }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}

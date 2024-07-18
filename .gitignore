@@ -2,3 +2,4 @@ __pycache__
 venv
 .venv
 HappyPetStructure.txt
+views/__pycache__

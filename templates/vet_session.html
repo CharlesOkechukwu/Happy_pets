@@ -14,9 +14,9 @@
         <ul>
             <li><a href="#">Appointments</a></li>
             <li><a href="#">Vet Session</a></li>
-            <li><a href="#">Add Vaccination Record</a></li>
-            <li><a href="#">Add Medical Record</a></li>
-            <li><a href="#">Add Growth Data</a></li>
+            <li><a href="{{ url_for('views.add_vaccine', a_id=appointment.a_id)}}">Add Vaccination Record</a></li>
+            <li><a href="{{ url_for('views.add_health', a_id=appointment.a_id) }}">Add Medical Record</a></li>
+            <li><a href="{{ url_for('views.add_growth', a_id=appointment.a_id) }}">Add Growth Data</a></li>
             <li><a href="#">Account Update</a></li>
         </ul>
     </div>
@@ -39,85 +39,6 @@
             <p></p>
             <button><a href="#">View Pet's Health Record</a></button>
             <button class="end-session"><a href="{{ url_for('views.end_session', a_id=appointment.a_id) }}"><i class="fa-solid fa-x"></i> End Pet Session </a></button>
-        </div>
-        <div class="register-container" id="vaccination">
-            <h4>Add Vaccination Record</h4>
-            <form method="POST">
-                <div class="field">
-                    {{ vacc_form.vaccine_name.label }}<br>
-                    {{ vacc_form.vaccine_name(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ vacc_form.dose_number.label }}<br>
-                    {{ vacc_form.dose_number(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ vacc_form.date_administered.label }}<br>
-                    {{ vacc_form.date_administered(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ vacc_form.next_due_date.label }}<br>
-                    {{ vacc_form.next_due_date(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ vacc_form.doses_left.label }}<br>
-                    {{ vacc_form.doses_left(class="form-ctr") }}
-                </div>
-                <div class="submit-field">
-                    {{ vacc_form.submit(class="submit-btn") }}
-                </div>
-            </form>
-        </div>
-        <div class="register-container" id="healthrecord">
-            <h4>Add Health Record</h4>
-            <form method="POST">
-                <div class="field">
-                    {{ health_form.vet_doctor.label }}<br>
-                    {{ health_form.vet_doctor(class="form-ctr", readonly="readonly", value=vet.name) }}
-                </div>
-                <div class="field">
-                    {{ health_form.symptoms.label }}<br>
-                    {{ health_form.symptoms(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ health_form.diagnosis.label }}<br>
-                    {{ health_form.diagnosis(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ health_form.treatment.label }}<br>
-                    {{ health_form.treatment(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ health_form.status.label }}<br>
-                    {{ health_form.status(class="form-ctr") }}
-                </div>
-                <div class="submit-field">
-                    {{ health_form.submit(class="submit-btn") }}
-                </div>
-            </form>
-        </div>
-        <div class="register-container" id="growthrecord">
-            <h4>Add Growth Records</h4>
-            <form method="POST">
-                <div class="field">
-                    {{ growth_form.month.label }}<br>
-                    {{ growth_form.month(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ growth_form.year.label }}<br>
-                    {{ growth_form.year(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ growth_form.weight.label }}<br>
-                    {{ growth_form.weight(class="form-ctr") }}
-                </div>
-                <div class="field">
-                    {{ growth_form.height.label }}<br>
-                    {{ growth_form.height(class="form-ctr") }}
-                </div>
-                <div class="submit-field">
-                    {{ growth_form.submit(class="submit-btn") }}
-                </div>
         </div>
     </div>
 </main>
