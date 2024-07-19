@@ -10,10 +10,9 @@
 
 {% block content %}
 <main class="main-container">
-    {% for pet in pets %}
         <div class="pet-card">
             <div class="profile-icon">
-                <img src="{{ url_for('static', filename='uploads_img/' ~ pet.photo.split('/')[-1]) }}" alt="profile photo">
+                <img src="/{{ pet.photo }}" alt="profile photo">
                 <h4>{{ pet.name }}<span>({{ pet.breed }})</span></h4>
             </div>
             <div class="content">
@@ -26,81 +25,105 @@
                     <h3>Vaccination History</h3>
                     <table class="vaccination">
                         <tr>
-                            <td>S/N</td>
-                            <td>Vaccine Name</td>
-                            <td>Number of Doses</td>
-                            <td>Date of First Dose</td>
-                            <td>Date of Second Dose</td>
+                            <th>Vaccine Name</th>
+                            <th>Number of Doses Given</th>
+                            <th>Date Administered</th>
+                            <th>Date of Second Dose</th>
+                            <th>Number of Doses Left</th>
+                            <th>Adminstered By</th>
                         </tr>
+                        {% for vaccination in vaccinations %}
+                        <tr>
+                            <td>{{ vaccination.vaccine_name }}</td>
+                            <td>{{ vaccination.dose_number }}</td>
+                            <td>{{ vaccination.date_administered }}</td>
+                            <td>{{ vaccination.next_due_date }}</td>
+                            <td>{{ vaccination.doses_left }}</td>
+                            <td>{{ vaccination.vet_name }}</td>
+                        </tr>
+                        {% endfor %}
                     </table>
+                    {% if vaccinations == [] %}
                     <p>No records yet!</p>
+                    {% endif %}
 
                     <h3 class="table-title">Medical Conditions</h3>
                     <table class="med-conditions">
                         <tr>
-                            <td>Date</td>
-                            <td>Name of Condition</td>
-                            <td>Diagnosis</td>
-                            <td>Vet Doctor</td>
-                            <td>Treatment</td>
+                            <th>Date of Diagnosis</th>
+                            <th>Diagnosis</th>
+                            <th>Symptoms</th>
+                            <th>Treatment</th>
+                            <th>Status</th>
+                            <th>Vet Doctor</th>
                         </tr>
+                        {% for record in health_records %}
+                        <tr>
+                            <td>{{ record.date }}</td>
+                            <td>{{ record.diagnosis }}</td>
+                            <td>{{ record.symptoms }}</td>
+                            <td>{{ record.treatment }}</td>
+                            <td>{{ record.status }}</td>
+                            <td>{{ record.vet_doctor }}</td>
+                        </tr>
+                        {% endfor %}
                     </table>
+                    {% if health_records == [] %}
                     <p>No Medical Conditions</p>
+                    {% endif %}
 
                     <h3 class="table-title">Vet Visits</h3>
                     <table class="pet-visits">
                         <tr>
-                            <td>S/N</td>
-                            <td>Date</td>
-                            <td>Time of Visit</td>
-                            <td>Duration</td>
-                            <td>Vet Doctor</td>
+                            <th>Date and Time</th>
+                            <th>Reason for Visist</th>
                         </tr>
+                        {% for appointment in appointments %}
+                        <tr>
+                            <td>{{ appointment.time }}</td>
+                            <td>{{ appointment.appointment_type }}</td>
+                        </tr>
+                        {% endfor %}
                     </table>
+                    {% if appointments == [] %}
                     <p>No records yet!</p>
+                    {% endif %}
                 </div>
                 <div class="growth-tracking hide" id="track-growth-{{ pet.id }}">
                     <div class="growth-data">
                         <img src="/static/images/puppy-growth-chart.png" alt="growth chart">
                         <div class="size-data">
+                            {% with height=growth_records.0.height %}
                             <h5>Height:</h5>
-                            <p>3ft 6inches<span>(15%+)</span></p>
+                            <p>{{ height }}ft<span>(15%+)</span></p>
+                            {% endwith %}
 
                             <h5>Weight:</h5>
-                            <p>25lbs<span>(25%+)</span></p>
+                            {% with weight=growth_records.0.weight %}
+                            <p>{{ weight }}lbs<span>(25%+)</span></p>
+                            {% endwith %}
                         </div>
                     </div>
-                    <h3 class="table-title">Growth in Last Five Years</h3>
+                    <h3 class="table-title">Growth this year</h3>
                     <table class="med-conditions">
                         <tr>
-                            <td></td>
-                            <td>2020</td>
-                            <td>2021</td>
-                            <td>2022</td>
-                            <td>2023</td>
-                            <td>2024</td>
-                            <td>Percentage Growth</td>
+                            <th>Height</th>
+                            <th>Weight</th>
+                            <th>Month</th>
+                            <th>Year</th>
                         </tr>
+                        {% for record in growth_records %}
                         <tr>
-                            <td style="font-weight: 700;">Height</td>
-                            <td>2ft5"</td>
-                            <td>2ft8"</td>
-                            <td>3ft</td>
-                            <td>3ft3"</td>
-                            <td>3ft6"</td>
-                            <td>40%+</td>
+                            <td>{{ record.height }}</td>
+                            <td>{{ record.weight }}</td>
+                            <td>{{ record.month }}</td>
+                            <td>{{ record.year }}</td>
                         </tr>
-                        <tr>
-                            <td style="font-weight: 700;">Weight</td>
-                            <td>17lbs</td>
-                            <td>19lbs</td>
-                            <td>21lbs</td>
-                            <td>23lbs</td>
-                            <td>25lbs</td>
-                            <td>50%+</td>
-                        </tr>
+                        {% endfor %}
                     </table>
+                    {% if growth_records == [] %}
                     <p class="info">Records Not Sufficient!</p>
+                    {% endif %}
                 </div>
                 <div class="symptom-checker hide" id="check-symptom-{{ pet.id }}">
                     <form>
@@ -114,6 +137,5 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
 </main>
 {% endblock %}

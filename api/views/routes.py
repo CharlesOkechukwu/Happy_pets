@@ -60,11 +60,17 @@ def add_pet():
     return render_template("add_pet.html")
 
 
-@views.route('/health', methods=['GET'], strict_slashes=False)
+@views.route('/health/<pet_id>', methods=['GET'], strict_slashes=False)
 @login_required
-def health():
-    user_pets = Pet.query.filter_by(owner_id=current_user.id).all()
-    return render_template("health_tracker.html", user=current_user, pets=user_pets)
+def health(pet_id):
+    pet = Pet.query.filter_by(id=pet_id).first()
+    vaccinations = Vaccination.query.filter_by(pet_id=pet_id).order_by(Vaccination.date_administered.desc()).all()
+    health_records = HealthRecord.query.filter_by(pet_id=pet_id).order_by(HealthRecord.date.desc()).all()
+    growth_records = GrowthRecord.query.filter_by(pet_id=pet_id).order_by(GrowthRecord.month.desc()).all()
+    appointments = Appointment.query.filter_by(pet_id=pet_id).order_by(Appointment.time.desc()).all()
+    return render_template("health_tracker.html", user=current_user, pet=pet,
+                           vaccinations=vaccinations, health_records=health_records,
+                           growth_records=growth_records, appointments=appointments)
 
 @views.route('/userdashboard')
 @login_required
@@ -122,46 +128,56 @@ def end_session(a_id):
 @login_required
 def add_vaccine(a_id):
     """add pet vaccination record"""
-    if session['vet_session'] is not None:
-        a_id = a_id
-        appointment = Appointment.query.filter_by(a_id=a_id).first()
+    form = AddVaccinationForm()
+    a_id = a_id
+    appointment = Appointment.query.filter_by(a_id=a_id).first()
+    if session.get('vet_session', None) is not None:
         pet_id = session['vet_session']
         vet_id = session['vet_id']
-        form = AddVaccinationForm()
-    if request.method == 'POST':
-        if session['vet_session'] is not None:
-            if form.validate_on_submit():
-                vaccine_name = form.vaccine_name.data
-                dose_number = form.dose_number.data
-                next_due_date = form.next_due_date.data
-                doses_left = form.doses_left.data
-                vet = Vet.query.filter_by(vet_id=vet_id).first()
-                vet_name = vet.name
-                date_administered = datetime.now()
-                vaccination = Vaccination(pet_id=pet_id, vaccine_name=vaccine_name,
-                                            dose_number=dose_number, date_administered=date_administered,
-                                            next_due_date=next_due_date, vet_id=vet_id, vet_name=vet_name,
-                                            doses_left=doses_left)
-                db.session.add(vaccination)
-                db.session.commit()
-                flash("Vaccination record added successfully", 'success')
-                return redirect(url_for('views.vet_session', pet_id=pet_id, a_id=a_id))
-            flash('Error adding vaccination record', 'error')
-        flash('Please start a vet session to add vaccination record', 'error')
+    else:
+        flash('Warning: No vet session started! Start a vet session to add vaccination record', 'error')
+    if request.method == 'POST' and session.get('vet_session', None) is not None:
+        if form.validate_on_submit():
+            vaccine_name = form.vaccine_name.data
+            dose_number = form.dose_number.data
+            next_due_date = form.next_due_date.data
+            doses_left = form.doses_left.data
+            vet = Vet.query.filter_by(vet_id=vet_id).first()
+            vet_name = vet.name
+            date_administered = datetime.now()
+            vaccination = Vaccination(pet_id=pet_id, vaccine_name=vaccine_name,
+                                        dose_number=dose_number, date_administered=date_administered,
+                                        next_due_date=next_due_date, vet_id=vet_id, vet_name=vet_name,
+                                        doses_left=doses_left)
+            db.session.add(vaccination)
+            db.session.commit()
+            flash("Vaccination record added successfully", 'success')
+            return redirect(url_for('views.vet_session', pet_id=pet_id, a_id=a_id))
+        flash('Error adding vaccination record', 'error')
     return render_template('add_vaccination.html', vacc_form=form, appointment=appointment)
 
 @views.route('/vet/session/add/health_record/<a_id>', methods=['GET', 'POST'], strict_slashes=False)
 def add_health(a_id):
     """Add pet health record"""
-    if session['vet_session'] is not None:
+    form = HealthRecordForm()
+    vet = None
+    appointment = []
+    if session.get('vet_session', None) is not None:
         a_id = a_id
         appointment = Appointment.query.filter_by(a_id=a_id).first()
         pet_id = session['vet_session']
         vet_id = session['vet_id']
         vet = Vet.query.filter_by(vet_id=vet_id).first()
-        form = HealthRecordForm()
+    else:
+        flash('Warning: No vet session started! Start a vet session to add health record', 'error')
     if request.method == 'POST':
         if form.validate_on_submit():
+            count_records = HealthRecord.query.filter_by(pet_id=pet_id).count()
+            if count_records >= 12:
+                old_records = HealthRecord.query.filter_by(pet_id=pet_id).all()
+                for record in old_records:
+                    db.session.delete(record)
+                    db.session.commit()
             vet_doctor = form.vet_doctor.data
             date = datetime.now()
             symptoms = form.symptoms.data
@@ -182,13 +198,17 @@ def add_health(a_id):
 @views.route('/vet/session/add/growth_record/<a_id>', methods=['GET', 'POST'], strict_slashes=False)
 def add_growth(a_id):
     """Add pet growth record"""
-    if session['vet_session'] is not None:
+    form = GrowthRecordForm()
+    vet = None
+    appointment = []
+    if session.get('vet_session', None) is not None:
         a_id = a_id
         appointment = Appointment.query.filter_by(a_id=a_id).first()
         pet_id = session['vet_session']
         vet_id = session['vet_id']
         vet = Vet.query.filter_by(vet_id=vet_id).first()
-        form = GrowthRecordForm()
+    else:
+        flash('Warning: No vet session started! Start a vet session to add growth record', 'error')
     if request.method == 'POST':
         if form.validate_on_submit():
             month = form.month.data

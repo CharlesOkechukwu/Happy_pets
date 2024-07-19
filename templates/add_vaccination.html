@@ -9,6 +9,16 @@
 
 {% block content %}
 <div class="register-container" id="vaccination">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                    <span class="close-btn">&times;</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}<br>
     <h4>Add Vaccination Record</h4>
     <form method="POST" action="{{ url_for('views.add_vaccine', a_id=appointment.a_id) }}">
         {{ vacc_form.hidden_tag() }}
