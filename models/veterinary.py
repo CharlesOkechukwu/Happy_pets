@@ -21,3 +21,4 @@ class Vet(db.Model, UserMixin):
     def get_id(self):
         """overried get_id method and return vet_id"""
         return self.vet_id
+    appointments = db.relationship('Appointment', backref='vet', lazy=True)

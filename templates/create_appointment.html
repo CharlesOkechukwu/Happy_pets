@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
+{% block title %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="register-container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                    <span class="close-btn">&times;</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}<br>
+    <h4 style="text-align: center;">Book appointment OR <a href="{{ url_for('views.userdashboard') }}">Back</a></h4>
+    <form method="POST" action="{{ url_for('auth.create_appointment')}}">
+        {{ form.hidden_tag() }}
+        <div class="field">
+            {{ form.pet_id.label }}<br>
+            {{ form.pet_id(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ form.vet_id.label }}<br>
+            {{ form.vet_id(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ form.time.label }}<br>
+            {{ form.time(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ form.appointment_type.label }}<br>
+            {{ form.appointment_type(class="form-ctr") }}
+        </div>
+        <div class="field">
+            {{ form.contact.label }}<br>
+            {{ form.contact(class="form-ctr") }}
+        </div>
+        <div class="submit-field">
+            {{ form.submit(class="submit-btn") }}
+        </div>
+    </form>
+</div>
+
+{% endblock %}

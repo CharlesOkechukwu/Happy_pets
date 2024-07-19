@@ -4,12 +4,14 @@
 # Imports
 from flask import render_template, flash, redirect, url_for, session
 from flask_login import login_user, logout_user, login_required, current_user
-from .forms import RegistrationForm, LoginForm, VetRegistrationForm, VetLoginForm
+from .forms import RegistrationForm, LoginForm, VetRegistrationForm, VetLoginForm, AppointmentForm
 from . import auth # Import from __int__.py
 from . import hash_password, authenticate_user, authenticate_vet# Import from __int__.py
 from api import db
-from models import User, Vet
+from models import User, Vet, Appointment
 from api.views import views, upload_photo
+from datetime import datetime
+
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
@@ -31,6 +33,7 @@ def register():
         return redirect(url_for('auth.login'))
     return render_template('register.html', title='Register', form=form)
 
+
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     """Handle POST api/auth/login"""
@@ -43,6 +46,7 @@ def login():
             login_user(user)
             return redirect (url_for('views.userdashboard'))
     return render_template('login.html', title='Sign In', form=form)
+
 
 @auth.route('/logout', methods=['GET', 'POST'])
 @login_required
@@ -80,6 +84,7 @@ def register_vet():
         print(form.errors)
     return render_template('register_vet.html', title='Register Vet', form=form)
 
+
 @auth.route('/vet/login', methods=['GET', 'POST'], strict_slashes=False)
 def vet_login():
     """Handle vet Doctor Login"""
@@ -91,3 +96,25 @@ def vet_login():
             session['vet_id'] = vet.vet_id
             return redirect(url_for('views.vet'))
     return render_template('vet_login.html', title='Vet Sign In', form=form)
+
+
+@auth.route('/create_appointment', methods=['GET', 'POST'])
+@login_required
+def create_appointment():
+    user_id = current_user.get_id()  # get the id of the user
+    form = AppointmentForm(user_id=user_id)
+    if form.validate_on_submit():
+        appointment = Appointment(
+            pet_id=form.pet_id.data,
+            vet_id=form.vet_id.data,
+            time=form.time.data,
+            appointment_type=form.appointment_type.data,
+            contact=form.contact.data
+        )
+        db.session.add(appointment)
+        db.session.commit()
+        return redirect(url_for('views.home'))
+    else:
+        print(form.errors)
+        print(form.data)
+    return render_template('create_appointment.html', form=form)
