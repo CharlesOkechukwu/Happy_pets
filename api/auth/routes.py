@@ -3,13 +3,12 @@
 
 # Imports
 from flask import render_template, flash, redirect, url_for, session
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 from .forms import RegistrationForm, LoginForm, VetRegistrationForm, VetLoginForm
 from . import auth # Import from __int__.py
-from . import hash_password, authenticate_user, authenticate_vet # Import from __int__.py
+from . import hash_password, authenticate_user, authenticate_vet# Import from __int__.py
 from api import db
-from models import User
-from models import Vet
+from models import User, Vet
 from api.views import views, upload_photo
 
 @auth.route('/register', methods=['GET', 'POST'])
@@ -35,12 +34,14 @@ def register():
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     """Handle POST api/auth/login"""
+    if current_user.is_authenticated:
+        return redirect(url_for('views.userdashboard'))
     form = LoginForm()
     if form.validate_on_submit():
         user = authenticate_user(form.email.data)
         if user:
             login_user(user)
-            return redirect (url_for('views.home'))
+            return redirect (url_for('views.userdashboard'))
     return render_template('login.html', title='Sign In', form=form)
 
 @auth.route('/logout', methods=['GET', 'POST'])
@@ -50,11 +51,13 @@ def logout():
     flash('You have been logged out.', 'success')
     return redirect(url_for('auth.login'))
 
+
+# Routes for vet dashboard
 @auth.route('/vet/register', methods=['GET', 'POST'], strict_slashes=False)
 def register_vet():
     """handles vet registration"""
     form = VetRegistrationForm()
-    if form.validate_on_submit():
+    if form.validate_on_submit():  
         hashed_password = hash_password(form.password.data)
         new_vet = Vet(
             name=form.name.data,
@@ -73,6 +76,8 @@ def register_vet():
             db.session.commit()
             flash('Vet account created successfully', 'success')
             return redirect(url_for('auth.register_vet'))
+    else:
+        print(form.errors)
     return render_template('register_vet.html', title='Register Vet', form=form)
 
 @auth.route('/vet/login', methods=['GET', 'POST'], strict_slashes=False)

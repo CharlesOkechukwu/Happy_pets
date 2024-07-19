@@ -18,16 +18,17 @@
             {% endfor %}
         {% endif %}
     {% endwith %}<br>
-    <h4 style="text-align: center;">Sign in</h2>
+    <h4 style="text-align: center;">Sign in OR login as a: <a href="{{ url_for('auth.login') }}">User</a></h4>
     <form method="POST" action="{{ url_for('auth.vet_login')}}">
         {{ form.hidden_tag() }}
         <div class="field">
             {{ form.email.label }}<br>
             {{ form.email(class="form-ctr") }}
         </div>
-        <div class="field">
+        <div class="field password-container">
             {{ form.password.label }}<br>
-            {{ form.password(class="form-ctr") }}
+            {{ form.password(class="form-ctr", id="password") }}
+            <i class="fa fa-eye toggle-password" id="togglePassword"></i>
         </div>
         <div class="submit-field">
             {{ form.submit(class="submit-btn") }}

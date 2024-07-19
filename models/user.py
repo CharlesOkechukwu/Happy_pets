@@ -17,3 +17,4 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(80), unique=True, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.now())
+    pets = db.relationship('Pet', backref='owner', lazy=True) # pets attribute on User

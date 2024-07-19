@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module contains the Vaccination model."""
 from api import db
 from sqlalchemy.sql import func

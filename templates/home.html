@@ -2,7 +2,7 @@
 
 {% block head %}
 {{ super() }}
-{% block title %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% endblock %}
 
 {% block content %}
@@ -60,51 +60,72 @@
     </section>
 
     <!-- Available Pet for Adoption -->
-    <section class="services">
-        <h2>Available Pets for Adoption</h2>
-        <div class="service-cards">
-            <div class="service-card">
-                <img src="{{ url_for('static', filename='images/max.jpg') }}" alt=" ">
-                <h3>Max</h3>
-                <p><strong>Color:</strong> Brown</p>
-                <p><strong>Breed:</strong> Labrador Retriever</p>
-                <p><strong>Age:</strong> 2 years</p>
+    <section class="available-pets">
+        <h3>Available Pets for Adoption</h3>
+        <div class="slideshow-container">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
+            <input type="radio" name="slider" id="slide5">
+            <input type="radio" name="slider" id="slide6">
+            <input type="radio" name="slider" id="slide7">
+            
+            <div class="slides">
+                <div class="pet-card" id="s1">
+                    <img src="/static/images/max.jpg" alt="Max">
+                    <h3>Max</h3>
+                    <p><strong>Color:</strong> Brown</p>
+                    <p><strong>Breed:</strong> Labrador Retriever</p>
+                    <p><strong>Age:</strong> 2 years</p>
+                </div>
+                <div class="pet-card" id="s2">
+                    <img src="/static/images/Bella.jpg" alt="Bella">
+                    <h3>Bella</h3>
+                    <p><strong>Color:</strong> White</p>
+                    <p><strong>Breed:</strong> Persian Cat</p>
+                    <p><strong>Age:</strong> 1 year</p>
+                </div>
+                <div class="pet-card" id="s3">
+                    <img src="/static/images/Foxy.jpg" alt="Foxy">
+                    <h3>Foxy</h3>
+                    <p><strong>Color:</strong> Black</p>
+                    <p><strong>Breed:</strong> German Shepherd</p>
+                    <p><strong>Age:</strong> 3 years</p>
+                </div>
+                <div class="pet-card" id="s4">
+                    <img src="/static/images/Luna.png" alt="Luna">
+                    <h3>Luna</h3>
+                    <p><strong>Color:</strong> Gray</p>
+                    <p><strong>Breed:</strong> Siamese Cat</p>
+                    <p><strong>Age:</strong> 8 months</p>
+                </div>
+                <div class="pet-card" id="s5">
+                    <img src="/static/images/Cooper.jpg" alt="Cooper">
+                    <h3>Cooper</h3>
+                    <p><strong>Color:</strong> Golden</p>
+                    <p><strong>Breed:</strong> Golden Retriever</p>
+                    <p><strong>Age:</strong> 1.5 years</p>
+                </div>
+                <div class="pet-card" id="s6">
+                    <img src="/static/images/Daisy.jpg" alt="Daisy">
+                    <h3>Daisy</h3>
+                    <p><strong>Color:</strong> Brown & White</p>
+                    <p><strong>Breed:</strong> Beagle</p>
+                    <p><strong>Age:</strong> 2.5 years</p>
+                </div>
             </div>
-            <div class="service-card">
-                <img src="{{ url_for('static', filename='images/Bella.jpg') }}" alt=" ">
-                <h3>Bella</h3>
-                <p><strong>Color:</strong> White</p>
-                <p><strong>Breed:</strong> Persian Cat</p>
-                <p><strong>Age:</strong> 1 year</p>
-            </div>
-            <div class="service-card">
-                <img src="{{ url_for('static', filename='images/Foxy.jpg') }}" alt=" ">
-                <h3>Foxy</h3>
-                <p><strong>Color:</strong> Black</p>
-                <p><strong>Breed:</strong> German Shepherd</p>
-                <p><strong>Age:</strong> 3 years</p>
-            </div>
-            <div class="service-card">
-                <img src="{{ url_for('static', filename='images/Luna.png') }}" alt=" ">
-                <h3>Luna</h3>
-                <p><strong>Color:</strong> Gray</p>
-                <p><strong>Breed:</strong> Siamese Cat</p>
-                <p><strong>Age:</strong> 8 months</p>
-            </div>
-            <div class="service-card">
-                <img src="{{ url_for('static', filename='images/Cooper.jpg') }}" alt=" ">
-                <h3>Cooper</h3>
-                <p><strong>Color:</strong> Golden</p>
-                <p><strong>Breed:</strong> Golden Retriever</p>
-                <p><strong>Age:</strong> 1.5 years</p>
-            </div>
-            <div class="service-card">
-                <img src="{{ url_for('static', filename='images/Daisy.jpg') }}" alt=" ">
-                <h3>Daisy</h3>
-                <p><strong>Color:</strong> Brown & White</p>
-                <p><strong>Breed:</strong> Beagle</p>
-                <p><strong>Age:</strong> 2.5 years</p>
+    
+            <div class="navigation">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+                <label for="slide5"></label>
+                <label for="slide6"></label>
+                <label for="slide7"></label>
             </div>
         </div>
     </section>
+</section>
 {% endblock %}

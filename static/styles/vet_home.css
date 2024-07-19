@@ -24,7 +24,7 @@ main .vet-nav {
 main .vet-nav img {
     height: 85%;
     width: auto;
-    border-radius: 8%;
+    border-radius: 40%;
 }
 
 /* style for destop view health tracker header */

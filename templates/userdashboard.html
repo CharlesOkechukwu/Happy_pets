@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/userdashboard.css') }}">
+{% block title %}{{ title }}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="close-btn">&times;</div>
+    <h2>Welcome back, {{ user.firstname }} {{ user.lastname }}!</h2>
+    {% if pets %}
+        {% for pet in pets %}
+        <div class='img-class'><img src="{{ url_for('static', filename='uploads_img/' ~ pet.photo.split('/')[-1]) }}" alt="{{ pet.name }}" class="img-size"></div>
+        <div class="pet-details">
+            <h3><a href="{{ url_for('views.health') }}" class="pet-name">{{ pet.name }}</a></h3>
+            <p>Species: {{ pet.specie }}</p>
+            <p>Breed: {{ pet.breed }}</p>
+            <p>Color: {{ pet.color }}</p>
+            <p>Birth Date: {{ pet.birth_date }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; color:#272727;">You don't have any pets yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block head %}
@@ -18,7 +19,7 @@
             {% endfor %}
         {% endif %}
     {% endwith %}<br>
-    <h4 style="text-align: center;">Create Vet Account</h2>
+    <h4 style="text-align: center;">Create a vet's account OR <a href="{{ url_for('auth.register') }}">User's account</a></h4>
     <form method="POST" action="{{ url_for('auth.register_vet')}}" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <div class="field">
@@ -49,13 +50,15 @@
             {{ form.country.label }}<br>
             {{ form.country(class="form-ctr") }}
         </div>
-        <div class="field">
+        <div class="field password-container">
             {{ form.password.label }}<br>
-            {{ form.password(class="form-ctr") }}
+            {{ form.password(class="form-ctr", id="password") }}
+            <i class="fa fa-eye toggle-password" id="togglePassword"></i>
         </div>
-        <div class="field">
+        <div class="field password-container">
             {{ form.confirm_password.label }}<br>
-            {{ form.confirm_password(class="form-ctr") }}
+            {{ form.confirm_password(class="form-ctr", id="confirm_password") }}
+            <i class="fa fa-eye toggle-password" id="toggleConfirmPassword"></i>
         </div>
         <div class="field">
             {{ form.photo.label }}<br>
@@ -64,7 +67,7 @@
         <div class="submit-field">
             {{ form.submit(class="submit-btn") }}
         </div>
-        <h4>You have account already: <a href="{{ url_for('auth.vet_login') }}">login</a></h4>
+        <h4>You have account already: <a href="{{ url_for('auth.login') }}">login</a></h4>
     </form>
 </div>
 

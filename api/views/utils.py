@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Other functions
 
 # Imports
@@ -7,7 +8,7 @@ from werkzeug.utils import secure_filename
 
 def allowed_file(filename):
     """check if file is allowed"""
-    allowed = ['png', 'jpg', 'jpeg']
+    allowed = ['png', 'jpg', 'jpeg', 'JPG', 'jfif']
     return '.' in filename and filename.split('.')[-1] in allowed
 
 def upload_photo(file):

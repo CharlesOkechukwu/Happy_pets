@@ -1,4 +1,4 @@
-/* style container for health tracker page profile header both desktop and mobile */
+/* General styles */
 main {
     min-height: 100%;
     max-width: 100%;
@@ -8,7 +8,26 @@ main {
     opacity: 0.75;
 }
 
-/* mobile version styles */
+/* Card styles */
+.pet-card {
+    background-color: #CCCCCC;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 200px;
+    padding: 20px;
+    position: relative;
+    opacity: 0.80;
+}
+
+/* Profile icon inside the card */
+.pet-card .profile-icon {
+    width: 20%; /* Adjust the width of the image*/
+    height: auto; /* Adjust the height of the image*/
+    position: absolute; /* Position inside the card */
+    margin-top: 20px;
+}
+
+/* Mobile styles */
 main .profile-icon {
     height: 30%;
     width: 100%;
@@ -17,26 +36,25 @@ main .profile-icon {
     text-align: center;
 }
 
-/* style image mobile view */
 main .profile-icon img {
-    height: 85%;
-    width: auto;
-    border-radius: 8%;
+    width: 150px; /* Adjust the width */
+    height: 150px; /* Adjust the height */
+    border-radius: 50%;
 }
 
-/* style bracket text */
+/* Bracket text style */
 main .profile-icon h4 span {
     font-style: italic;
 }
 
-/* style main content */
+/* Main content styles */
 main .content {
     width: 100%;
     height: auto;
     margin-top: 20px;
 }
 
-/* style nav-bar  mobile view */
+/* Nav-bar mobile view */
 main .content .nav-bar {
     background-color: #272727;
     width: 90%;
@@ -65,7 +83,7 @@ main .content .health-records {
     color: #272727;
 }
 
-/* style vaccination history table mobile view */
+/* Vaccination history table */
 main .content .health-records h3 {
     margin-bottom: 0px;
 }
@@ -73,6 +91,7 @@ main .content .health-records h3 {
 main .content .health-records table {
     text-align: center;
 }
+
 main .content .health-records table tr td {
     padding: 5px 10px 5px 0;
 }
@@ -84,19 +103,18 @@ main .content .health-records p {
     text-align: center;
     color: #CCCCCC;
     border-radius: 10px;
-
 }
 
-/* style table title both views */
+/* Table title */
 main .content .health-records .table-title {
     margin-top: 30px;
 }
 
-/* style growth-tracking section */
+/* Growth tracking section */
 main .content .growth-tracking {
     margin-top: 10px;
     padding: 10px 15px;
-    color: #272727; 
+    color: #272727;
 }
 
 main .content .growth-tracking .growth-data {
@@ -104,20 +122,20 @@ main .content .growth-tracking .growth-data {
     height: auto;
 }
 
-/* style chart image */
+/* Chart image */
 main .content .growth-tracking .growth-data img {
     width: 100%;
     height: auto;
     border-radius: 8%;
 }
 
-/* style chart titles */
+/* Chart titles */
 main .content .growth-tracking .size-data {
     margin-top: 10px;
     padding: 10px;
     color: #272727;
-
 }
+
 main .content .growth-tracking .size-data h5 {
     font-size: 18px;
 }
@@ -132,7 +150,7 @@ main .content .growth-tracking .size-data p span {
     font-weight: 500;
 }
 
-/* style growth tracker table */
+/* Growth tracker table */
 main .content .growth-tracking table {
     margin-top: 10px;
     text-align: center;
@@ -142,7 +160,6 @@ main .content .growth-tracking h3 {
     margin-top: 10px;
 }
 
-/* style growth tracking table columns */
 main .content .growth-tracking table tr td {
     padding: 5px 10px 5px 0;
 }
@@ -154,10 +171,9 @@ main .content .growth-tracking .info {
     text-align: center;
     color: #CCCCCC;
     border-radius: 10px;
-
 }
 
-/* style symptom checker */
+/* Symptom checker */
 main .content .symptom-checker {
     margin-top: 10px;
     padding: 10px 15px;
@@ -165,7 +181,6 @@ main .content .symptom-checker {
     width: 100%;
 }
 
-/* style symptom checker form, inputs and text-area mobile view*/
 main .content .symptom-checker form {
     width: 100%;
     height: auto;
@@ -175,7 +190,8 @@ main .content .symptom-checker form h3 {
     margin-bottom: 10px;
 }
 
-main .content .symptom-checker form input, textarea {
+main .content .symptom-checker form input,
+textarea {
     width: 100%;
     height: 30px;
     margin-bottom: 10px;
@@ -202,7 +218,7 @@ main .content .nav-bar .active {
     color: #EF7676;
 }
 
-/* style for destop view health tracker header */
+/* Desktop view health tracker header */
 @media (min-width: 600px) {
     main .profile-icon {
         height: 100%;
@@ -214,7 +230,6 @@ main .content .nav-bar .active {
         color: #272727;
     }
 
-    /*style image */
     main .profile-icon img {
         width: 70%;
         height: auto;
@@ -223,21 +238,18 @@ main .content .nav-bar .active {
         margin: 0 15% 0 15%;
     }
 
-    /* style bracket text */
     main .profile-icon h4 span {
         font-style: italic;
         padding: 5px 0;
     }
 
-    /* style main page content */
     main .content {
         width: 74%;
         height: 100%;
         margin-left: 25%;
         padding: 25px 0 0 0;
     }
-    
-    /* style profile nav bar */
+
     main .content .nav-bar {
         margin-left: 10px;
         text-align: center;
@@ -260,7 +272,6 @@ main .content .nav-bar .active {
         color: #EF7676;
     }
 
-    /* style transaction history */
     main .content .health-records {
         margin-top: 30px;
         margin-left: 0px;
@@ -275,28 +286,25 @@ main .content .nav-bar .active {
         padding: 5px 10px 5px 0;
     }
 
-    /* style gwoth tracking desktop version */
     main .content .growth-data {
         width: 100%;
         height: auto;
         display: flex;
     }
-    
-    /* style chart image  desktop version */
+
     main .content .growth-tracking .growth-data img {
         width: 50%;
         height: auto;
         border-radius: 8%;
     }
 
-    /* style chart titles desktop version */
     main .content .growth-tracking .size-data {
         margin-left: 30px;
         padding: 10px;
         color: #272727;
         width: 40%;
     }
-    
+
     main .content .growth-tracking h3 {
         margin-top: 30px;
     }
@@ -304,7 +312,7 @@ main .content .nav-bar .active {
     main .content .symptom-checker form label {
         width: 100%;
     }
-    /* style symptom checker form input, textarea and button desktop version */
+
     main .content .symptom-checker form input {
         width: 50%;
         height: 30px;
@@ -331,5 +339,11 @@ main .content .nav-bar .active {
         color: #CCCCCC;
         border-radius: 5px;
         border: none;
+    }
+
+    .img-size {
+        width: 150px; /* Adjust the width */
+        height: 150px; /* Adjust the height */
+        border-radius: 50%;
     }
 }

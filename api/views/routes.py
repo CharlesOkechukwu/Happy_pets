@@ -1,18 +1,21 @@
+#!/usr/bin/python3
 import os
-from flask import render_template, request, flash, redirect, url_for, current_app, session, Response
+from flask import render_template, request, flash, redirect, url_for, current_app, session
 from api import db
 from .forms import AddVaccinationForm, HealthRecordForm, GrowthRecordForm
 from api.views import views
+from models import Pet, Vet, Appointment
+from .forms import AddVaccinationForm, HealthRecordForm, GrowthRecordForm
 from models import Pet, Vet, Appointment, Vaccination, HealthRecord, GrowthRecord
 from datetime import date, datetime
-from flask_login import login_required
 from flask_wtf import csrf
+from flask_login import login_required, current_user
 from . import upload_photo
 
 
 @views.route('/')
 def home():
-    return render_template("home.html")
+    return render_template("home.html", title='Home page')
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
@@ -26,7 +29,7 @@ def add_pet():
         photo = request.files.get('photo')
         
         pet = Pet()
-        pet.owner_id = 1
+        pet.owner_id = current_user.id # Use current_user.id to set the owner_id
         if name == '':
             flash("You must enter your pet name!!", 'error')
         else:
@@ -53,17 +56,27 @@ def add_pet():
             db.session.add(pet)
             db.session.commit()
             flash("Pet added successfully", 'success')
-        return redirect(url_for('views.add_pet'))
+            return redirect(url_for('views.userdashboard'))
     return render_template("add_pet.html")
 
 
 @views.route('/health', methods=['GET'], strict_slashes=False)
+@login_required
 def health():
-    return render_template("health_tracker.html")
+    user_pets = Pet.query.filter_by(owner_id=current_user.id).all()
+    return render_template("health_tracker.html", user=current_user, pets=user_pets)
+
+@views.route('/userdashboard')
+@login_required
+def userdashboard():
+    # Retrieve the logged-in user's pets
+    user_pets = Pet.query.filter_by(owner_id=current_user.id).all()
+    return render_template('userdashboard.html', user=current_user, pets=user_pets)
 
 @views.route('/base')
 def index():
     return render_template('base.html')
+
 
 @views.route('/vet', methods=['GET'], strict_slashes=False)
 @login_required
@@ -105,8 +118,6 @@ def end_session(a_id):
     db.session.commit()
     return redirect(url_for('views.vet'))
 
-
-    
 @views.route('/vet/session/add/vaccination/<a_id>', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def add_vaccine(a_id):
