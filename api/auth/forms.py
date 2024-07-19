@@ -4,11 +4,12 @@
 # Imports
 from flask_wtf import FlaskForm
 from flask import flash
-from wtforms import StringField, PasswordField, SubmitField, FileField, RadioField
+from wtforms import StringField, PasswordField, SubmitField, FileField, SelectField, DateTimeField
 from . import verify_password # Import from __int__.py
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from models import User  # Assuming User model is in models/user.py and it import in the __init__.py to make available in the package
-from models import Vet
+from models import Vet, Appointment, Pet
+from wtforms.fields import DateTimeLocalField
 
 
 # form for registration
@@ -139,3 +140,19 @@ class VetLoginForm(FlaskForm):
         if user and not verify_password(user.password, password.data):
             flash('Incorrect password, try again.', 'error')
             raise ValidationError('Incorrect password, try again.')
+
+
+# Booking appointment
+class AppointmentForm(FlaskForm):
+    pet_id = SelectField('Pet', coerce=int, validators=[DataRequired()])
+    vet_id = SelectField('Vet', coerce=int, validators=[DataRequired()])
+    time = DateTimeLocalField('Appointment Time', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
+    appointment_type = StringField('Appointment Type', validators=[DataRequired()], render_kw={"placeholder": "Reason"})
+    contact = StringField('Contact Information', validators=[DataRequired()])
+    submit = SubmitField('Book Appointment')
+
+
+    def __init__(self, user_id, *args, **kwargs):
+        super(AppointmentForm, self).__init__(*args, **kwargs)
+        self.pet_id.choices = [(pet.id, pet.name) for pet in Pet.query.filter_by(owner_id=user_id).all()]
+        self.vet_id.choices = [(vet.vet_id, vet.name) for vet in Vet.query.all()]
