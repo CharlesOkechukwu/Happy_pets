@@ -182,3 +182,36 @@ HealthRecord object model handles the health record of a pet, it stores the diag
 
 ### GrowthRecord
 GrowthRecord object model handles the growth record of the pet, it stores the weight and height of a pet month by month in a year.
+
+
+## Routes
+### Home route
+```/```
+![Register](static/images/home.png)
+
+Happy Pet Home page is the page displayed when a client visits the root route
+
+
+### Register Routes
+```/register```
+```/vet/register```
+![Homepage](/static/images/register_vet.png)
+
+HappyPet has two register routes, ```/register``` handles registration for users while ```/vet/register``` handles registration for the vet doctors.
+
+
+### Login Routes
+```/login```
+```/vet/login```
+
+HappyPet has two login routes, ```/login``` handles user login and ```/vet/login``` handles login for vet doctors.
+
+
+### Add Pet Route
+```/pet/add```
+[Add Pet](/static/images/add_pet.png)
+
+This route handles the addition of pet to database, this enables the user to add his pet to a database
+
+
+### Appointment
