@@ -93,6 +93,7 @@
                     <div class="growth-data">
                         <img src="/static/images/puppy-growth-chart.png" alt="growth chart">
                         <div class="size-data">
+                            {% if growth_records != [] %}
                             {% with height=growth_records.0.height %}
                             <h5>Height:</h5>
                             <p>{{ height }}ft<span>(15%+)</span></p>
@@ -102,6 +103,7 @@
                             {% with weight=growth_records.0.weight %}
                             <p>{{ weight }}lbs<span>(25%+)</span></p>
                             {% endwith %}
+                            {% endif %}
                         </div>
                     </div>
                     <h3 class="table-title">Growth this year</h3>

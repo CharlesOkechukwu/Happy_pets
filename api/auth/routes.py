@@ -8,7 +8,7 @@ from .forms import RegistrationForm, LoginForm, VetRegistrationForm, VetLoginFor
 from . import auth # Import from __int__.py
 from . import hash_password, authenticate_user, authenticate_vet# Import from __int__.py
 from api import db
-from models import User, Vet, Appointment
+from models import User, Vet, Appointment, Pet
 from api.views import views, upload_photo
 from datetime import datetime
 
@@ -104,8 +104,12 @@ def create_appointment():
     user_id = current_user.get_id()  # get the id of the user
     form = AppointmentForm(user_id=user_id)
     if form.validate_on_submit():
+        pet_id = form.pet_id.data
+        pet = Pet.query.filter_by(id=pet_id).first()
         appointment = Appointment(
-            pet_id=form.pet_id.data,
+            pet_id=pet_id,
+            pet_name=pet.name,
+            pet_specie=pet.specie,
             vet_id=form.vet_id.data,
             time=form.time.data,
             appointment_type=form.appointment_type.data,
