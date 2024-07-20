@@ -1,14 +1,26 @@
 # Happy Pets Web Application
 Happy Pet Portfolio is a web application built with Python Flask framework. This application allows users to create and manage profiles for their pets, including photos, descriptions, and other details. It connects Pet owners to Vet doctors and enables vet doctors to easily track the health records of a pet to know the right approach when treating a pet due to its medical records. Happy provides an all round solution to enable pet owners easily care for their pets, document and follow up details of their pets. This project aims to provide an alll round care solution for pets in Nigeria, Kenya, Ghana and South Africa.
 
+### Explanation
+
+- **Title and Project Description**: Provides a clear name and a brief overview of what the project does.
+- **Table of Contents**: Helps users quickly find the information they need.
+- **Installation**: Step-by-step guide on how to set up the project locally.
+- **Usage**: Instructions on how to run and use the project.
+- **Features**: Highlights the key features of the project.
+- **Contributing**: Guidelines for contributing to the project.
+- **License**: Specifies the license under which the project is distributed.
 
 ## Table of Contents
--[Installation](#installation)
--[Usage](#usage)
--[Features](#features)
--[Technologies](#technologies)
-[Contributing](#contributing)
--[License](#licence)
+[ Installation. ](#installation)
+[ Usage.](#usage)
+[ Features. ](#features)
+[Technologies. ](#technologies)
+[Contributing. ](#contributing)
+[Contributors. ](#contributors)
+[ Models. ](#models)
+[ Routes. ](#routes)
+[License](#licence)
 
 ## Installation
 
@@ -125,17 +137,6 @@ This project is licensed under the MIT License. See the LICENSE file for more in
     * Frontend and backend routes development
 
 
-### Explanation
-
-- **Title and Project Description**: Provides a clear name and a brief overview of what the project does.
-- **Table of Contents**: Helps users quickly find the information they need.
-- **Installation**: Step-by-step guide on how to set up the project locally.
-- **Usage**: Instructions on how to run and use the project.
-- **Features**: Highlights the key features of the project.
-- **Contributing**: Guidelines for contributing to the project.
-- **License**: Specifies the license under which the project is distributed.
-
-
 ## Models
 ### User Model
 User model object handles the storage of user's data. It enables users to reigister, login, add pet and book appointments. It contains the following fields:
@@ -217,4 +218,65 @@ HappyPet has two login routes, ```/login``` handles user login and ```/vet/login
 This route handles the addition of pet to database, this enables the user to add his pet to a database
 
 
-### Appointment
+### Appointment Route
+
+```/create_appointment```
+
+![create_appointment](/static/images/create_app.png)
+
+Creates appointment for a pet with a vet doctor
+
+
+### Health Tracker Route
+
+```/health/<pet_id>```
+
+![health tracker](/static/images/health.png)
+
+
+This route handles the display of the vaccination records, health records, appointments and growth records
+
+
+### Vet Dashboard Route
+
+```/vet```
+
+![vet dashboard](/static/images/vet_dashboard.png)
+
+This route displays the vet dashboard which displays the current appointemnes a vet doctor has and a start session button.
+
+
+### Vet Session Route
+
+```/vet/session/<pet_id>/<a_id>```
+
+![vet session](/static/images/vet_session.png)
+
+This route starts a vet session, this is the start of the vet doctors meeting with the pet, the vet doctor would be able to view the pet's health record by clicking on the view health record button, the vet doctor can also update finings in the health of the pet by clicking the add health record button, the vet can also add vaccination and growth records. When the vet doctor is done with the meeting, he/she clicks on the end session button which ends the session and deletes the appointment records.
+
+### Add Vaccination Route
+
+```/vet/add/vaccination/<a_id>```
+
+This route adds the pet vaccinationation record, the pet vaccination record can only be added by a vet doctor, the user can only view the pet vaccination record.
+
+
+### Add Health Record
+
+```/vet/add/health_record/<a_id>```
+
+This route adds the pet's health record, this is also added by the vet doctor while the user can only view the record added.
+
+
+### Add Growth Record
+
+```/vet/add/growth_record/<a_id>```
+
+This route adds the pet's growth record which includes the height and weight of the pet, this record is added each month and is used to track the growth of the pet for each year.
+
+
+### End Session
+
+```/vet/session/<a_id>/end```
+
+This route end's the current vet session and returns the vet doctor to his/her dashboard to start a session for the next appointment, it delets the session object enabling the vet doctor to create a new session.
