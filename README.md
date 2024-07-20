@@ -12,15 +12,15 @@ Happy Pet Portfolio is a web application built with Python Flask framework. This
 - **License**: Specifies the license under which the project is distributed.
 
 ## Table of Contents
-[ Installation. ](#installation)
-[ Usage.](#usage)
-[ Features. ](#features)
-[Technologies. ](#technologies)
-[Contributing. ](#contributing)
-[Contributors. ](#contributors)
-[ Models. ](#models)
-[ Routes. ](#routes)
-[License](#licence)
+[ Installation. ](#installation)<br>
+[ Usage.](#usage)<br>
+[ Features. ](#features)<br>
+[Technologies. ](#technologies)<br>
+[Contributing. ](#contributing)<br>
+[Contributors. ](#contributors)<br>
+[ Models. ](#models)<br>
+[ Routes. ](#routes)<br>
+[License](#licence)<br>
 
 ## Installation
 
