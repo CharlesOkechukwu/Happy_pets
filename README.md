@@ -9,6 +9,10 @@ Happy Pet Portfolio is a web application built with Python Flask framework. This
 - **Usage**: Instructions on how to run and use the project.
 - **Features**: Highlights the key features of the project.
 - **Contributing**: Guidelines for contributing to the project.
+- **Contributors**: Lists contributors to this project.
+- **Models**: Describes the models in this project.
+- **Routes**: Describes the routes in this project.
+- **Authors**: Lists the authors of this project.
 - **License**: Specifies the license under which the project is distributed.
 
 ## Table of Contents
@@ -288,5 +292,5 @@ This route end's the current vet session and returns the vet doctor to his/her d
 4. Charles Okechukwu (realcharlieok@gmail.com)
 
 
-## Licience
+## License
 This project is licensed under the MIT License. See the LICENSE file for more information.
