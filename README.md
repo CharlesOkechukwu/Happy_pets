@@ -76,12 +76,15 @@ python3 app.py
 - JavaScript
 - JQuery
 - Jinja2
+
 ### Backend Technologies
 - Python3
 - Flask
 - Flask-SQLAlchemy
 - Flask-Login
- 
+
+### Database
+-MySQL
 
 ## Contributing
 
@@ -94,6 +97,33 @@ python3 app.py
 Licience
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
+## Contributors
+- Samuel Dennis (frontend and backend developer)
+    * Team Lead
+    * Project manager
+    * Coordinating the breakdown of tasks, task delegation
+    * Design and development of frontend and backend routes
+
+- Holy Ovwiurhobo (Frontend and Backend developer)
+    * Lead developer
+    * Design of Project file structure
+    * Gathering of project technical requirements
+    * Design of User Object Model
+    * Frontend and Backend Routes development
+
+- Idah Khumalo (Frontend and Backend developer)
+    * Design and description of Project Features
+    * Design and description of project routes
+    * Design and Development of Base Frontend File
+    * Design of user interface and experience design
+    * Frontend and backend routes development
+
+- Charles Okechukwu (Frontend and backend developer)
+    * Design and development of Pet object model
+    * Design of health tracker page
+    * Design of Vet object model
+    * Frontend and backend routes development
+
 
 ### Explanation
 
@@ -104,3 +134,51 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 - **Features**: Highlights the key features of the project.
 - **Contributing**: Guidelines for contributing to the project.
 - **License**: Specifies the license under which the project is distributed.
+
+
+## Models
+### User Model
+User model object handles the storage of user's data. It enables users to reigister, login, add pet and book appointments. It contains the following fields:
+- First Name
+- Last Name
+- Email
+- Phonenumber
+- Password
+- Created At
+
+### Pet Model
+Pet model object handles the storage of the pet's data. It enables users to add their pets and upload pet's photo, it contains a method pet_age that calculates the pet's age in years. It contains the following fields:
+- Name
+- Specie
+- Breed
+- Birth Date
+- Color
+- Owner Id
+- Photo
+
+### Vet Model
+Vet object model handles the storage of vet doctors data. It enables vet doctors to register, login and attend to vet appointments and start vet session. It contains the following fields:
+- Fullname
+- Email
+- Phonenumber
+- Address
+- City
+- State
+- Country
+- Password
+- Photo
+
+
+### Appointments
+Appointments object model handles the appointment data, it collects the appointment time, reason for apointment and also collects the pet id, pet name, owner's contact details and the vet doctors id.
+
+
+### Vaccination
+Vaccination object model handles the vaccination records, it stores the vaccine name, vaccine does, date of vaccine administration, date of next vaccine administration, number of doeses left and the name of the vet doctor administering the vaccine.
+
+
+### HealthRecord
+HealthRecord object model handles the health record of a pet, it stores the diagnosis, sysmptoms, treatment and name vet doctor treating the pet.
+
+### GrowthRecord
+GrowthRecord object model handles the growth record of the pet, it stores the weight and height of a pet month by month in a year.
