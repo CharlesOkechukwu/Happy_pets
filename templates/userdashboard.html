@@ -14,7 +14,7 @@
         {% for pet in pets %}
         <div class='img-class'><img src="{{ url_for('static', filename='uploads_img/' ~ pet.photo.split('/')[-1]) }}" alt="{{ pet.name }}" class="img-size"></div>
         <div class="pet-details">
-            <h3><a href="{{ url_for('views.health') }}" class="pet-name">{{ pet.name }}</a></h3>
+            <h3><a href="{{ url_for('views.health', pet_id=pet.id) }}" class="pet-name">{{ pet.name }}</a></h3>
             <p>Species: {{ pet.specie }}</p>
             <p>Breed: {{ pet.breed }}</p>
             <p>Color: {{ pet.color }}</p>

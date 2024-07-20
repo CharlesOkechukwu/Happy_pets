@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block head %}
@@ -19,27 +18,27 @@
             {% endfor %}
         {% endif %}
     {% endwith %}<br>
-    <h4>Add Vaccination Record</h4>
-    <form method="POST" action="{{ url_for('views.add_vaccine', a_id=appointment.a_id) }}">
-        {{ vacc_form.hidden_tag() }}
+    <h4>Add Growth Record</h4>
+    <form method="POST" action="{{ url_for('views.add_growth', a_id=appointment.a_id) }}">
+        {{ growth_form.hidden_tag() }}
         <div class="field">
-            {{ vacc_form.vaccine_name.label }}<br>
-            {{ vacc_form.vaccine_name(class="form-ctr") }}
+            {{ growth_form.month.label }}<br>
+            {{ growth_form.month(class="form-ctr") }}
         </div>
         <div class="field">
-            {{ vacc_form.dose_number.label }}<br>
-            {{ vacc_form.dose_number(class="form-ctr") }}
+            {{ growth_form.year.label }}<br>
+            {{ growth_form.year(class="form-ctr") }}
         </div>
         <div class="field">
-            {{ vacc_form.next_due_date.label }}<br>
-            {{ vacc_form.next_due_date(class="form-ctr") }}
+            {{ growth_form.weight.label }}<br>
+            {{ growth_form.weight(class="form-ctr") }}
         </div>
         <div class="field">
-            {{ vacc_form.doses_left.label }}<br>
-            {{ vacc_form.doses_left(class="form-ctr") }}
+            {{ growth_form.height.label }}<br>
+            {{ growth_form.height(class="form-ctr") }}
         </div>
         <div class="submit-field">
-            {{ vacc_form.submit(class="submit-btn") }}
+            {{ growth_form.submit(class="submit-btn") }}
         </div>
     </form>
 </div>

@@ -18,3 +18,10 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///{}.db'.format(DB_NAME)
+
+class CharlesConfig(Config):
+    username = 'root'
+    password = ''
+    host = 'localhost'
+    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://{}:{}@{}/{}'.format(username, password, host, DB_NAME)

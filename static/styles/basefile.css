@@ -3,17 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* Style html element */
+
+/* style html */
 html {
     font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    min-height: 100%;
+    width: 100%;
 }
-/* boby styling */
+
+/* style body */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    min-height: 100vh;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
     background-image: url('../images/backgrounddarker_resized\ \(1\).jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,11 +32,10 @@ header {
     padding: 10px;
     color: #CCCCCC;
     text-align: center;
-    min-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 20%;
     position: fixed;
     top: 0;
-    z-index: 1000; 
 }
 
 /* footer styling */
@@ -40,11 +45,9 @@ footer {
     text-align: center;
     padding: 10px;
     margin-top: auto;
-    position: fixed;
     bottom: 0;
     width: 100%;
-    height: auto;
-    z-index: 1000; 
+    height: 25%;
 }
 
 /* Styling the logo navigation container */
@@ -65,20 +68,21 @@ footer {
 
 /* Style a navbar */
 .navbar {
-margin-left: 150px;
-font-size: 18px;
+    margin-left: 150px;
+    font-size: 18px;
 }
-
+    
 .navbar a {
-color: #CCCCCC;
-margin-right: 20px;
-text-decoration: none;
+    color: #CCCCCC;
+    margin-right: 20px;
+    text-decoration: none;
 }
 
 /* Styling nav */
 .navbar a:hover {
     text-decoration: underline;
 }
+
 .search-form {
     display: flex;
     align-items: center;
@@ -106,6 +110,7 @@ text-decoration: none;
     font-size: 10px;
     width: 20%;
 }
+
 .account-options {
     display: flex;
     align-items: center;
@@ -163,6 +168,7 @@ text-decoration: none;
 
 /* Hero Section */
 .hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
     color: #CCCCCC;
     text-align: center;
     padding: 100px 20px;
@@ -215,132 +221,16 @@ text-decoration: none;
     border-radius: 10px;
     width: 250px;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
-    opacity: 0.75;
-}
-
-.service-card:hover {
-    transform: scale(1.05); /* Slightly enlarges the card */
-    background-color: #f0f0f0; /* Changes background color on hover */
 }
 
 .service-card img {
     max-width: 100px;
-    height: 100px;
-    border:#272727;
     margin-bottom: 20px;
-    border-radius: 50px;
 }
 
 .service-card h3 {
     margin-bottom: 10px;
 }
-.available-pets {
-    padding: 20px;
-    background-color: #CCCCCC;
-    text-align: center;
-    opacity: 0.75;
-    margin: 0 500px 50px 500px;
-    border-radius: 8px;
-}
-
-.available-pets h3 {
-    color: #272727;
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.slideshow-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-}
-
-.slides {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-}
-
-.slides .pet-card {
-    width: 100%;
-    flex-shrink: 0;
-    transition: transform 0.5s ease-in-out;
-    display: none;
-}
-
-.slides .pet-card img {
-    border-radius: 10px;
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    margin: auto;
-}
-
-.slides .pet-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.slides .pet-card p {
-    font-size: 1em;
-    margin-bottom: 5px;
-}
-
-/* Hide all slides by default */
-input[type="radio"] {
-    display: none;
-}
-
-input[type="radio"]:checked + .slides .pet-card {
-    display: block;
-}
-
-/* Navigation dots */
-.navigation {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.navigation label {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.navigation label:hover, input[type="radio"]:checked + .slides ~ .navigation label[for="slide1"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide2"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide3"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide4"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide5"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide6"],
-input[type="radio"]:checked + .slides ~ .navigation label[for="slide7"] {
-    background-color: #272727;
-}
-
-input[type="radio"]:checked + label {
-    background-color: #272727;
-}
-
-/* Slider transitions */
-#slide1:checked ~ .slides .pet-card:nth-child(1),
-#slide2:checked ~ .slides .pet-card:nth-child(2),
-#slide3:checked ~ .slides .pet-card:nth-child(3),
-#slide4:checked ~ .slides .pet-card:nth-child(4),
-#slide5:checked ~ .slides .pet-card:nth-child(5),
-#slide6:checked ~ .slides .pet-card:nth-child(6),
-#slide6:checked ~ .slides .pet-card:nth-child(7) {
-    display: block;
-}
-
 
 /* Styling footer content */
 .footer-content {
@@ -363,6 +253,7 @@ input[type="radio"]:checked + label {
     margin-bottom: 3px;
     text-align: left;
 }
+
 .footer-column ul li a {
     color: #CCCCCC;
     text-decoration: none;

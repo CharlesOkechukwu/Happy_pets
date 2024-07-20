@@ -3,6 +3,7 @@
 
 # Imports
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField
 from flask import flash
 from wtforms import StringField, PasswordField, SubmitField, FileField, SelectField, DateTimeField
 from . import verify_password # Import from __int__.py
