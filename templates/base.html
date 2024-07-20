@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+    <script src="https://kit.fontawesome.com/51f8b67884.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="module" src="{{ url_for('static', filename='js/hide_footer_on_scroll.js') }}"></script>
     <script type="module" src="{{ url_for('static', filename='js/alert_btn.js') }}"></script>
@@ -20,8 +21,8 @@
             </div>
             <div class="navbar">
                 <a href="{{ url_for('views.home') }}">Home</a>
-                <a href="{{ url_for('views.health') }}">Health Tracking</a>
-                <a href="{{ url_for('auth.create_appointment') }}">Appointments</a>
+                <a href="{{ url_for('views.health', pet_id=0) }}">Health Tracking</a>
+                <a href="#">Appointments</a>
                 <a href="#">Tips</a>
                 <a href="#">Services</a>
                 <a href="#">Lost Pet Alert</a>
@@ -39,8 +40,10 @@
                 <div class="dropdown-content">
                     <a href="{{ url_for('auth.register') }}">Register</a>
                     <a href="{{ url_for('auth.login') }}">Login</a>
+                    {% if current_user.is_authenticated %}
                     <a href="{{ url_for('auth.logout') }}">Logout</a>
                     <a href="{{ url_for('views.add_pet') }}">Add a Pet</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="dropdown">

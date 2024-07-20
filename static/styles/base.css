@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 /* Style html element */
 html {
     font-size: 16px;
@@ -34,6 +39,7 @@ footer {
     color: #CCCCCC;
     text-align: center;
     padding: 10px;
+    margin-top: auto;
     position: fixed;
     bottom: 0;
     width: 100%;
