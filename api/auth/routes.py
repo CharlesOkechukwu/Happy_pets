@@ -10,10 +10,9 @@ from . import hash_password, authenticate_user, authenticate_vet# Import from __
 from api import db
 from models import User, Vet, Appointment, Pet
 from api.views import views, upload_photo
-from datetime import datetime
 
 
-@auth.route('/register', methods=['GET', 'POST'])
+@auth.route('/register', methods=['GET', 'POST'], strict_slashes=False)
 def register():
     """Handle POST api/auth/register"""
     form = RegistrationForm()
@@ -34,7 +33,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def login():
     """Handle POST api/auth/login"""
     if current_user.is_authenticated:
@@ -79,9 +78,7 @@ def register_vet():
             db.session.add(new_vet)
             db.session.commit()
             flash('Vet account created successfully', 'success')
-            return redirect(url_for('auth.register_vet'))
-    else:
-        print(form.errors)
+            return redirect(url_for('auth.vet_login'))
     return render_template('register_vet.html', title='Register Vet', form=form)
 
 
@@ -98,7 +95,7 @@ def vet_login():
     return render_template('vet_login.html', title='Vet Sign In', form=form)
 
 
-@auth.route('/create_appointment', methods=['GET', 'POST'])
+@auth.route('/create_appointment', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def create_appointment():
     user_id = current_user.get_id()  # get the id of the user
@@ -118,7 +115,4 @@ def create_appointment():
         db.session.add(appointment)
         db.session.commit()
         return redirect(url_for('views.home'))
-    else:
-        print(form.errors)
-        print(form.data)
     return render_template('create_appointment.html', form=form)

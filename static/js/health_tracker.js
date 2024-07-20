@@ -1,3 +1,4 @@
+// Hide and Display Health Treacker sessions
 $(document).ready(function () {
     $(".mini-nav.records").click(function () {
         const petId = $(this).attr('id').split('-')[1];

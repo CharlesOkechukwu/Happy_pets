@@ -1,3 +1,4 @@
+// Handle hide footer on scroll up
 let lastScrollTop = 0;
 const footer = document.getElementById('footer');
 

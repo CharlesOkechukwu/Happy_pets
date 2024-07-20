@@ -1,4 +1,8 @@
+#!/usr/bin/python3
 """module for update and add form classes"""
+
+
+# Imports
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField
 from flask import flash
@@ -7,6 +11,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationE
 from models import User, Vet, Appointment, Pet, Vaccination, HealthRecord, GrowthRecord  # Assuming User model is in models/user.py and it import in the __init__.py to make available in the package
 
 
+# Add vaccination form
 class AddVaccinationForm(FlaskForm):
     """Create AddVaccinationForm class form"""
     vaccine_name = StringField('Vaccine Name', validators=[DataRequired(), Length(min=4, max=20)],render_kw={"placeholder": "Enter vaccine name"})
@@ -16,6 +21,7 @@ class AddVaccinationForm(FlaskForm):
     submit = SubmitField('Add')
 
 
+# Health Records Form
 class HealthRecordForm(FlaskForm):
     """create add health record form"""
     vet_doctor = StringField('Vet Doctor', validators=[DataRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Enter vet doctor name"})
@@ -26,6 +32,7 @@ class HealthRecordForm(FlaskForm):
     submit = SubmitField('Add')
 
 
+# Growth Record Form
 class GrowthRecordForm(FlaskForm):
     """add pet growth recorf form"""
     month = StringField('Month', validators=[DataRequired(), Length(min=1, max=20)], render_kw={"placeholder": "Enter month"})

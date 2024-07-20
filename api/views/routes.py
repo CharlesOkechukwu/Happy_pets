@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Routes fro Views module"""
+
 import os
 from flask import render_template, request, flash, redirect, url_for, current_app, session
 from api import db
@@ -15,11 +17,14 @@ from . import upload_photo
 
 @views.route('/')
 def home():
+    """GET api/views/home"""
     return render_template("home.html", title='Home page')
+
 
 @views.route('/pet/add', methods=['GET', 'POST'], strict_slashes=False)
 @login_required
 def add_pet():
+    """GET api/views/pet/add"""
     if request.method == 'POST':
         name = request.form.get('name')
         specie = request.form.get('specie')
@@ -63,6 +68,7 @@ def add_pet():
 @views.route('/health/<pet_id>', methods=['GET'], strict_slashes=False)
 @login_required
 def health(pet_id):
+    """GET api/views/health/<pet_id>"""
     pet = Pet.query.filter_by(id=pet_id).first()
     vaccinations = Vaccination.query.filter_by(pet_id=pet_id).order_by(Vaccination.date_administered.desc()).all()
     health_records = HealthRecord.query.filter_by(pet_id=pet_id).order_by(HealthRecord.date.desc()).all()
@@ -72,16 +78,14 @@ def health(pet_id):
                            vaccinations=vaccinations, health_records=health_records,
                            growth_records=growth_records, appointments=appointments)
 
+
 @views.route('/userdashboard')
 @login_required
 def userdashboard():
+    """Rendder user dashboard"""
     # Retrieve the logged-in user's pets
     user_pets = Pet.query.filter_by(owner_id=current_user.id).all()
     return render_template('userdashboard.html', user=current_user, pets=user_pets)
-
-@views.route('/base')
-def index():
-    return render_template('base.html')
 
 
 @views.route('/vet', methods=['GET'], strict_slashes=False)
@@ -156,6 +160,7 @@ def add_vaccine(a_id):
         flash('Error adding vaccination record', 'error')
     return render_template('add_vaccination.html', vacc_form=form, appointment=appointment)
 
+
 @views.route('/vet/session/add/health_record/<a_id>', methods=['GET', 'POST'], strict_slashes=False)
 def add_health(a_id):
     """Add pet health record"""
@@ -194,6 +199,7 @@ def add_health(a_id):
             return redirect(url_for('views.vet_session', pet_id=pet_id, a_id=a_id))
         flash('Error adding health record', 'error')
     return render_template('add_health.html', health_form=form, appointment=appointment, vet=vet)
+
 
 @views.route('/vet/session/add/growth_record/<a_id>', methods=['GET', 'POST'], strict_slashes=False)
 def add_growth(a_id):

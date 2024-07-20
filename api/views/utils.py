@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Other functions
+"""Other functions"""
 
 # Imports
 import os
