@@ -34,8 +34,7 @@
                     <p><span>Color:</span> {{ pet.color }} </p>
                 </div>
             </div>
-            <h6>Vet Session type: {{ appointment.appointment_type }}</h6>
-            <h6>Sessions Details: {{ appointment.info }}</h6>
+            <h6>Vet Session Details: {{ appointment.appointment_type }}</h6>
             <p></p>
             <button><a href="{{ url_for('views.health', pet_id=pet.id)}}">View Pet's Health Record</a></button>
             <button class="end-session"><a href="{{ url_for('views.end_session', a_id=appointment.a_id) }}"><i class="fa-solid fa-x"></i> End Pet Session </a></button>
