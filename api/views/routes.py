@@ -60,7 +60,6 @@ def add_pet():
             pet.photo = photo_path
             db.session.add(pet)
             db.session.commit()
-            flash("Pet added successfully", 'success')
             return redirect(url_for('views.userdashboard'))
     return render_template("add_pet.html")
 
@@ -155,7 +154,6 @@ def add_vaccine(a_id):
                                         doses_left=doses_left)
             db.session.add(vaccination)
             db.session.commit()
-            flash("Vaccination record added successfully", 'success')
             return redirect(url_for('views.vet_session', pet_id=pet_id, a_id=a_id))
         flash('Error adding vaccination record', 'error')
     return render_template('add_vaccination.html', vacc_form=form, appointment=appointment)
@@ -195,7 +193,6 @@ def add_health(a_id):
                                          treatment=treatment, status=status)
             db.session.add(health_record)
             db.session.commit()
-            flash("Health record added successfully", 'success')
             return redirect(url_for('views.vet_session', pet_id=pet_id, a_id=a_id))
         flash('Error adding health record', 'error')
     return render_template('add_health.html', health_form=form, appointment=appointment, vet=vet)
@@ -225,7 +222,6 @@ def add_growth(a_id):
                                          year=year, weight=weight, height=height, vet_name=vet.name)
             db.session.add(growth_record)
             db.session.commit()
-            flash("Growth record added successfully", 'success')
             return redirect(url_for('views.vet_session', pet_id=pet_id, a_id=a_id))
         flash('Error adding growth record', 'error')
     return render_template('add_growth.html', growth_form=form, appointment=appointment, vet=vet)
