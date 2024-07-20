@@ -12,15 +12,16 @@ Happy Pet Portfolio is a web application built with Python Flask framework. This
 - **License**: Specifies the license under which the project is distributed.
 
 ## Table of Contents
-[ Installation. ](#installation)<br>
-[ Usage.](#usage)<br>
-[ Features. ](#features)<br>
-[Technologies. ](#technologies)<br>
-[Contributing. ](#contributing)<br>
-[Contributors. ](#contributors)<br>
-[ Models. ](#models)<br>
-[ Routes. ](#routes)<br>
-[License](#licence)<br>
+1. [ Installation. ](#installation)<br>
+2. [ Usage.](#usage)<br>
+3. [ Features. ](#features)<br>
+4. [Technologies. ](#technologies)<br>
+5. [Contributing. ](#contributing)<br>
+6. [Contributors. ](#contributors)<br>
+7. [ Models. ](#models)<br>
+8. [ Routes. ](#routes)<br>
+9. [ Authors. ](#authors)<br>
+10. [License](#licence)
 
 ## Installation
 
@@ -106,8 +107,6 @@ python3 app.py
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Create a new Pull Request
 
-Licience
-This project is licensed under the MIT License. See the LICENSE file for more information.
 
 ## Contributors
 - Samuel Dennis (frontend and backend developer)
@@ -280,3 +279,14 @@ This route adds the pet's growth record which includes the height and weight of 
 ```/vet/session/<a_id>/end```
 
 This route end's the current vet session and returns the vet doctor to his/her dashboard to start a session for the next appointment, it delets the session object enabling the vet doctor to create a new session.
+
+
+## Authors
+1. Holy Ovwiurhobo (oghenewonaholy@gmail.com)
+2. Idah Khumalo (lindiwekhumalo833@gmail.com)
+3. Samuel Dennis (sam.dben@gmail.com)
+4. Charles Okechukwu (realcharlieok@gmail.com)
+
+
+## Licience
+This project is licensed under the MIT License. See the LICENSE file for more information.
