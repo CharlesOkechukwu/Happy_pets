@@ -209,7 +209,7 @@ HappyPet has two login routes, ```/login``` handles user login and ```/vet/login
 
 ### Add Pet Route
 ```/pet/add```
-[Add Pet](/static/images/add_pet.png)
+[AddPet](/static/images/add_pet.png)
 
 This route handles the addition of pet to database, this enables the user to add his pet to a database
 
