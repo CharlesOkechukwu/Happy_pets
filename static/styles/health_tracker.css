@@ -304,10 +304,13 @@ main .content .nav-bar .active {
         display: flex;
     }
 
-    main .content .growth-tracking .growth-data img {
-        width: 50%;
+    main .content .growth-tracking .growth-data canvas {
+        max-width: 50%;
         height: auto;
-        border-radius: 8%;
+        border-radius: 8px;
+        padding: 5px;
+        background-color: white;
+        color: #272727;
     }
 
     main .content .growth-tracking .size-data {

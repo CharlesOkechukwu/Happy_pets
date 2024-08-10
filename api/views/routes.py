@@ -68,14 +68,23 @@ def add_pet():
 @login_required
 def health(pet_id):
     """GET api/views/health/<pet_id>"""
+    labels = ["January", "February", "March", "April", "May", "June", "July",
+              "August", "September", "October", "November", "December"]
     pet = Pet.query.filter_by(id=pet_id).first()
     vaccinations = Vaccination.query.filter_by(pet_id=pet_id).order_by(Vaccination.date_administered.desc()).all()
     health_records = HealthRecord.query.filter_by(pet_id=pet_id).order_by(HealthRecord.date.desc()).all()
     growth_records = GrowthRecord.query.filter_by(pet_id=pet_id).order_by(GrowthRecord.month.desc()).all()
+    growth_records = sorted(growth_records, key=lambda x: labels.index(x.month), reverse=True)
+    growth_data = growth_records[:]
+    growth_data.reverse()
+    height_data = [record.height for record in growth_data]
+    weight_data = [record.weight for record in growth_data]
     appointments = Appointment.query.filter_by(pet_id=pet_id).order_by(Appointment.time.desc()).all()
     return render_template("health_tracker.html", user=current_user, pet=pet,
                            vaccinations=vaccinations, health_records=health_records,
-                           growth_records=growth_records, appointments=appointments)
+                           growth_records=growth_records, appointments=appointments,
+                           labels=labels, height_data=height_data,
+                           weight_data=weight_data)
 
 
 @views.route('/userdashboard')
@@ -218,6 +227,11 @@ def add_growth(a_id):
             year = form.year.data
             weight = form.weight.data
             height = form.height.data
+            record_count = GrowthRecord.query.filter_by(pet_id=pet_id).count()
+            if record_count >= 12:
+                old_records = GrowthRecord.query.filter_by(pet_id=pet_id).all()
+                for record in old_records:
+                    db.session.delete(record)
             growth_record = GrowthRecord(pet_id=pet_id, vet_id=vet_id, month=month,
                                          year=year, weight=weight, height=height, vet_name=vet.name)
             db.session.add(growth_record)

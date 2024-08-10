@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/health_tracker.css') }}">
 <script type="module" src="{{ url_for('static', filename='js/health_tracker.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% block title %}Health Tracker{% endblock %}
 {% endblock %}
 
@@ -91,7 +92,7 @@
                 </div>
                 <div class="growth-tracking hide" id="track-growth-{{ pet.id }}">
                     <div class="growth-data">
-                        <img src="/static/images/puppy-growth-chart.png" alt="growth chart">
+                        <canvas id="growth-chart"></canvas>
                         <div class="size-data">
                             {% if growth_records != [] %}
                             {% with height=growth_records.0.height %}
@@ -140,4 +141,32 @@
             </div>
         </div>
 </main>
+<script>
+    const label = {{ labels | tojson }};
+    const data = {
+        labels: label,
+        datasets: [{
+            label: 'Height Data',
+            data: {{ height_data | tojson }},
+            backgroundColor: 'rgba(255, 99, 132)',
+            borderColor: 'rgba(255, 99, 132)',
+            borderWidth: 1
+        }, {
+            label: 'Weight Data',
+            data: {{ weight_data | tojson }},
+            backgroundColor: 'rgba(54, 162, 235)',
+            borderColor: 'rgba(54, 162, 235)',
+            borderWidth: 1
+        }]
+    };
+    const config = {
+        type: 'line',
+        data: data,
+        options: { maintainAspectRatio: false }
+    };
+    const petChart = new Chart(
+        document.getElementById('growth-chart'),
+        config
+    );
+</script>
 {% endblock %}
